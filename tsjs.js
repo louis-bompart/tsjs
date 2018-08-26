@@ -1,13 +1,36 @@
 #! /usr/bin/env node
 const path = require('path');
 const fs = require('fs');
-const yargs = require('yargs');
 const {flow, update} = require('lodash/fp');
 const {Linter, Configuration} = require('tslint');
 const tsfmt = require('typescript-formatter');
 
-yargs.array('exclude');
-const argv = yargs.argv;
+const argv = require('yargs')
+    .alias('h', 'help')
+    .alias('v', 'version')
+    .alias('e', 'exclude')
+    .alias('a', 'all')
+    .alias('c', 'tsconfig')
+    .alias('n', 'nounusedvar')
+    .alias('p', 'ignorepattern')
+    .array('exclude')
+    .option('exclude', {
+        description: 'Specify globs to exclude. Use with --all option.',
+    })
+    .option('all', {
+        description: 'Include all files specified in the provided tsconfig.json',
+    })
+    .option('tsconfig', {
+        description: 'Provide a custom tsconfig file. This option is ignored if the --all option is used.',
+        default: 'tsconfig.json',
+    })
+    .option('nounusedvar', {
+        description: 'Disallow unused imports, variables, functions and private class members',
+    })
+    .option('ignorepattern', {
+        description: 'Use with --nounused option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ ',
+    })
+    .argv;
 
 const tslintPath = path.join(__dirname, 'tslint.json');
 const tsfmtPath = path.join(__dirname, 'tsfmt.json');
