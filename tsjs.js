@@ -13,22 +13,26 @@ const argv = require('yargs')
     .alias('c', 'tsconfig')
     .alias('n', 'nounusedvar')
     .alias('p', 'ignorepattern')
-    .array('exclude')
     .option('exclude', {
         description: 'Specify globs to exclude. Use with --all option.',
+        type: 'array',
     })
     .option('all', {
         description: 'Include all files specified in the provided tsconfig.json',
+        type: 'boolean',
     })
     .option('tsconfig', {
         description: 'Provide a custom tsconfig file. This option is ignored if the --all option is used.',
         default: 'tsconfig.json',
+        type: 'string',
     })
     .option('nounusedvar', {
         description: 'Disallow unused imports, variables, functions and private class members',
+        type: 'boolean',
     })
     .option('ignorepattern', {
         description: 'Use with --nounused option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ ',
+        type: 'string',
     })
     .argv;
 
