@@ -6,15 +6,16 @@ const {Linter, Configuration} = require('tslint');
 const tsfmt = require('typescript-formatter');
 
 const tsjs = require('yargs')
-    .option('help', {alias: 'h'})
-    .option('version', {alias: 'v'})
+    .usage('tsjs -- An awesome lint fixer following the tsjs code standards https://github.com/coveo/tsjs.')
+    .option('help', {alias: 'h', description: 'Print help menu.'})
+    .option('version', {alias: 'v', description: 'Print tsjs package version.'})
     .option('exclude', {
         description: 'Specify globs to exclude. Use with --all option.',
         type: 'array',
         alias: 'e',
     })
     .option('all', {
-        description: 'Include all files specified in the provided tsconfig.json',
+        description: 'Include all files specified in the provided tsconfig.json.',
         type: 'boolean',
         alias: 'a',
     })
@@ -25,12 +26,12 @@ const tsjs = require('yargs')
         alias: 'c',
     })
     .option('nounusedvar', {
-        description: 'Disallow unused imports, variables, functions and private class members',
+        description: 'Disallow unused imports, variables, functions and private class members.',
         type: 'boolean',
         alias: 'n',
     })
     .option('ignorepattern', {
-        description: 'Use with --nounused option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ ',
+        description: 'Use with --nounused option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ .',
         type: 'string',
         alias: 'p',
     })
