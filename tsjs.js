@@ -1,13 +1,42 @@
 #! /usr/bin/env node
 const path = require('path');
 const fs = require('fs');
-const yargs = require('yargs');
 const {flow, update} = require('lodash/fp');
 const {Linter, Configuration} = require('tslint');
 const tsfmt = require('typescript-formatter');
 
-yargs.array('exclude');
-const argv = yargs.argv;
+const tsjs = require('yargs')
+    .usage('tsjs -- An awesome lint fixer following the tsjs code standards https://github.com/coveo/tsjs.')
+    .option('help', {alias: 'h', description: 'Print help menu.'})
+    .option('version', {alias: 'v', description: 'Print tsjs package version.'})
+    .option('exclude', {
+        description: 'Specify globs to exclude. Use with --all option.',
+        default: [],
+        type: 'array',
+        alias: 'e',
+    })
+    .option('all', {
+        description: 'Include all files specified in the provided tsconfig.json.',
+        type: 'boolean',
+        alias: 'a',
+    })
+    .option('tsconfig', {
+        description: 'Provide a custom tsconfig file. This option is ignored if the --all option is used.',
+        default: 'tsconfig.json',
+        type: 'string',
+        alias: 'c',
+    })
+    .option('nounusedvar', {
+        description: 'Disallow unused imports, variables, functions and private class members.',
+        type: 'boolean',
+        alias: 'n',
+    })
+    .option('ignorepattern', {
+        description: 'Use with --nounused option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ .',
+        type: 'string',
+        alias: 'p',
+    })
+    .argv;
 
 const tslintPath = path.join(__dirname, 'tslint.json');
 const tsfmtPath = path.join(__dirname, 'tsfmt.json');
@@ -15,9 +44,9 @@ const tsconfigPath = path.join(__dirname, 'tsconfig.lint.json');
 const tempTsLintFile = '.tslint.temp.json';
 const tempTsfmtFile = '.tsfmt.temp.json';
 const tempTsConfigFile = '.tsconfig.lint.temp.json';
-let tsConfigFile = argv.tsconfig || 'tsconfig.json';
+let tsConfigFile = tsjs.tsconfig;
 let tsConfigLint = {exclude: []};
-const tsLintExcludeOptionArray = argv.exclude || [];
+const tsLintExcludeOptionArray = tsjs.exclude;
 
 process.on('exit', () => {
     fs.unlinkSync(tempTsConfigFile);
@@ -30,13 +59,13 @@ try {
     fs.writeFileSync(
         tempTsLintFile,
         flow(
-            update('no-unused-variable[1].ignore-pattern', (val) => argv.ignorepattern || val),
-            update('no-unused-variable', (val) => (argv.nounusedvar && val) || undefined),
+            update('no-unused-variable[1].ignore-pattern', (val) => tsjs.ignorepattern || val),
+            update('no-unused-variable', (val) => (tsjs.nounusedvar && val) || undefined),
             JSON.stringify
         )(require(tslintPath))
     );
 
-    if (argv.all) {
+    if (tsjs.all) {
         tsConfigLint = require(tsconfigPath);
         tsConfigLint.exclude = [...tsConfigLint.exclude, ...tsLintExcludeOptionArray];
         fs.writeFileSync(tempTsConfigFile, JSON.stringify(tsConfigLint));
