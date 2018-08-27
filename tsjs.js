@@ -11,9 +11,9 @@ const tsjs = require('yargs')
     .option('version', {alias: 'v', description: 'Print tsjs package version.'})
     .option('exclude', {
         description: 'Specify globs to exclude. Use with --all option.',
+        default: [],
         type: 'array',
         alias: 'e',
-        default: [],
     })
     .option('all', {
         description: 'Include all files specified in the provided tsconfig.json.',
