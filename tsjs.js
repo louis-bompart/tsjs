@@ -13,6 +13,7 @@ const tsjs = require('yargs')
         description: 'Specify globs to exclude. Use with --all option.',
         type: 'array',
         alias: 'e',
+        default: [],
     })
     .option('all', {
         description: 'Include all files specified in the provided tsconfig.json.',
@@ -43,9 +44,9 @@ const tsconfigPath = path.join(__dirname, 'tsconfig.lint.json');
 const tempTsLintFile = '.tslint.temp.json';
 const tempTsfmtFile = '.tsfmt.temp.json';
 const tempTsConfigFile = '.tsconfig.lint.temp.json';
-let tsConfigFile = tsjs.tsconfig || 'tsconfig.json';
+let tsConfigFile = tsjs.tsconfig;
 let tsConfigLint = {exclude: []};
-const tsLintExcludeOptionArray = tsjs.exclude || [];
+const tsLintExcludeOptionArray = tsjs.exclude;
 
 process.on('exit', () => {
     fs.unlinkSync(tempTsConfigFile);
