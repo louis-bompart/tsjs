@@ -32,7 +32,7 @@ const tsjs = require('yargs')
         alias: 'n',
     })
     .option('ignorepattern', {
-        description: 'Use with --nounused option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ .',
+        description: 'Use with --nounusedvar option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ .',
         type: 'string',
         alias: 'p',
     })
