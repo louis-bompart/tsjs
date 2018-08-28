@@ -54,13 +54,22 @@ process.on('exit', () => {
     fs.unlinkSync(tempTsLintFile);
 });
 
+const setNoUnusedVar = update(
+    'no-unused-variable',
+    () => tsjs.nounusedvar ? [true, {'ignore-pattern': '([Rr]eact|Store)'}] : undefined
+);
+
+const setNoUnusedVarIgnorePattern = (tslintConfig) => tslintConfig['no-unused-variable']
+    ? update('no-unused-variable[1].ignore-pattern', (val) => tsjs.ignorepattern || val)(tslintConfig)
+    : tslintConfig;
+
 try {
     fs.writeFileSync(tempTsfmtFile, JSON.stringify(require(tsfmtPath)));
     fs.writeFileSync(
         tempTsLintFile,
         flow(
-            update('no-unused-variable[1].ignore-pattern', (val) => tsjs.ignorepattern || val),
-            update('no-unused-variable', (val) => (tsjs.nounusedvar && val) || undefined),
+            setNoUnusedVar,
+            setNoUnusedVarIgnorePattern,
             JSON.stringify
         )(require(tslintPath))
     );
