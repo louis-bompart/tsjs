@@ -96,10 +96,6 @@
     "no-unnecessary-initializer": true,
     "no-unsafe-finally": true,
     "no-unused-expression": false,
-    "no-unused-variable": [
-      true,
-      {"ignore-pattern": "([Rr]eact|Store)"}
-    ],
     "no-var-keyword": true,
     "no-var-requires": true,
     "one-line": [
