@@ -2267,6 +2267,14 @@ Since this part appeared to have a more educational purpose, you can refer to th
   - [26.6](#test-matchers) Prefer built-in jasmine matchers (`toBeDefined`, `toEqual`, `toBe`, `toContain`, etc) before custom matchers, except for `toBeTruthy` and `toBeFalsy`. 
     > Why? Jasmine's matchers are robust and give clear information in the logs if your test breaks, which make things easier to debug. 
 
+  <a name="test-variables-description"></a>
+  - [26.7](#test-matchers) Do not use variables in your tests description. 
+    > Why? If the test fails, and in most other circumstances, it will make it unsearchable. 
+
+  <a name="test-break-description"></a>
+  - [26.8](#test-matchers) Do not break your test descriptions on two lines, always put them on one line even if it's long. 
+    > Why? If the test fails, and in most other circumstances, it will make the test unsearchable.
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Reviewing  
