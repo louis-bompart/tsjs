@@ -23,6 +23,7 @@ Other Standards
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
   1. [Redux](#redux)
+  1. [Hooks](#hooks)
 
 ## Basic Rules
 
@@ -525,6 +526,10 @@ Other Standards
   - The file name for your actions should be the name of the component + the suffix `Actions`.
 
   - The file name for your reducers should be the name of the component + the suffix `Reducers`.
+
+## Hooks
+
+Follow the [rules of hooks](https://reactjs.org/docs/hooks-rules.html) as defined by react maintainers.
 
 **[⬆ back to top](#table-of-contents)**
 

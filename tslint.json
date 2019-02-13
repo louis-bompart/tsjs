@@ -1,4 +1,7 @@
 {
+  "extends": [
+    "tslint-react-hooks"
+  ],
   "rules": {
     "align": [
       true,
@@ -129,6 +132,7 @@
       "avoid-escape"
     ],
     "radix": true,
+    "react-hooks-nesting": "error",
     "semicolon": [
       true,
       "always"
@@ -183,7 +187,10 @@
       "check-type",
       "check-typecast"
     ],
-    "linebreak-style": [true, "CRLF"]
+    "linebreak-style": [
+      true,
+      "CRLF"
+    ]
   },
   "jsRules": {
     "align": [
@@ -318,6 +325,9 @@
       "check-type",
       "check-typecast"
     ],
-    "linebreak-style": [true, "CRLF"]
+    "linebreak-style": [
+      true,
+      "CRLF"
+    ]
   }
 }
