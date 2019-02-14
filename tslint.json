@@ -132,7 +132,7 @@
       "avoid-escape"
     ],
     "radix": true,
-    "react-hooks-nesting": "error",
+    "react-hooks-nesting": true,
     "semicolon": [
       true,
       "always"
