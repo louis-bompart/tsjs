@@ -9,6 +9,10 @@
   "bin": {
     "tsjs": "tsjs.js"
   },
+  "files": [
+    ".prettierrc",
+    "tslint.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/coveo/tsjs.git"
@@ -16,10 +20,12 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "4.17.11",
+    "prettier": "1.17.1",
     "tslint": "5.12.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
     "tslint-react-hooks": "1.1.0",
     "typescript": "3.3.3",
-    "typescript-formatter": "7.2.2",
     "yargs": "13.1.0"
   }
 }
