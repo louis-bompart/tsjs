@@ -7,10 +7,10 @@
     "test": "node -e 'console.log(\"No script added yet, add one.\");'"
   },
   "bin": {
-    "tsjs": "tsjs.js"
+    "tsjs": "tsjs.js",
+    "prettier": "prettier.js"
   },
   "files": [
-    ".prettierrc",
     "tslint.js"
   ],
   "repository": {
