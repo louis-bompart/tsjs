@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    extends: ['tslint-react-hooks', 'tslint-config-prettier', 'tslint-plugin-prettier'],
+    extends: ['tslint-react-hooks', 'tslint-config-prettier'],
     rules: {
         prettier: true,
         'array-type': [true, 'array-simple'],
