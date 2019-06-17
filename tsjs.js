@@ -32,11 +32,11 @@ const tsjs = require('yargs')
         alias: 'n',
     })
     .option('ignorepattern', {
-        description: 'Use with --nounusedvar option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ .',
+        description:
+            'Use with --nounusedvar option to ignore variable names and imports that will match the pattern provided. More details at https://palantir.github.io/tslint/rules/no-unused-variable/ .',
         type: 'string',
         alias: 'p',
-    })
-    .argv;
+    }).argv;
 
 const tslintPath = path.join(__dirname, 'tslint.json');
 const tsfmtPath = path.join(__dirname, 'tsfmt.json');
@@ -54,14 +54,14 @@ process.on('exit', () => {
     fs.unlinkSync(tempTsLintFile);
 });
 
-const setNoUnusedVar = update(
-    'no-unused-variable',
-    () => tsjs.nounusedvar ? [true, {'ignore-pattern': '([Rr]eact|Store)'}] : undefined
+const setNoUnusedVar = update('no-unused-variable', () =>
+    tsjs.nounusedvar ? [true, {'ignore-pattern': '([Rr]eact|Store)'}] : undefined
 );
 
-const setNoUnusedVarIgnorePattern = (tslintConfig) => tslintConfig['no-unused-variable']
-    ? update('no-unused-variable[1].ignore-pattern', (val) => tsjs.ignorepattern || val)(tslintConfig)
-    : tslintConfig;
+const setNoUnusedVarIgnorePattern = (tslintConfig) =>
+    tslintConfig['no-unused-variable']
+        ? update('no-unused-variable[1].ignore-pattern', (val) => tsjs.ignorepattern || val)(tslintConfig)
+        : tslintConfig;
 
 try {
     fs.writeFileSync(tempTsfmtFile, JSON.stringify(require(tsfmtPath)));
@@ -102,20 +102,22 @@ try {
     });
 
     console.log('\nRunning tsfmt...\n');
-    tsfmt.processFiles(files, {
-        replace: true,
-        tsconfig: true,
-        tsconfigFile: tsConfigFile,
-        tslint: true,
-        tslintFile: tempTsLintFile,
-        editorconfig: false,
-        vscode: false,
-        vscodeFile: null,
-        tsfmt: true,
-        tsfmtFile: tempTsfmtFile,
-    })
-        .then(() => console.log('Tsjs linting and formatting completed successfully. See additional logs above for details.'));
-
+    tsfmt
+        .processFiles(files, {
+            replace: true,
+            tsconfig: true,
+            tsconfigFile: tsConfigFile,
+            tslint: true,
+            tslintFile: tempTsLintFile,
+            editorconfig: false,
+            vscode: false,
+            vscodeFile: null,
+            tsfmt: true,
+            tsfmtFile: tempTsfmtFile,
+        })
+        .then(() =>
+            console.log('Tsjs linting and formatting completed successfully. See additional logs above for details.')
+        );
 } catch (e) {
     console.log(e);
 
