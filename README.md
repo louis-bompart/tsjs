@@ -1,82 +1,84 @@
-# TSJS  
-> TypeScript (and JavaScript) Standards for the Coveo Cloud Platform
-  
-Other Standards  
+# TSJS
 
-- [React/Redux](react_redux/)  
-- [CSS & Sass](css_sass/)
+> TypeScript (and JavaScript) Standards for the Coveo Cloud Platform
+
+Other Standards
+
+-   [React/Redux](react_redux/)
+-   [CSS & Sass](css_sass/)
 
 <h2 id="intro">Introduction</h2>
 
-The current repository aggregates all code standards that must be respected when writing and reviewing TypeScript code related to the Coveo Cloud Platform. This document should therefore be read and applied by anyone having to write TypeScript code for the Coveo Cloud Platform.  
-  
-The current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript), but most code examples were rewritten in TypeScript.  
+The current repository aggregates all code standards that must be respected when writing and reviewing TypeScript code related to the Coveo Cloud Platform. This document should therefore be read and applied by anyone having to write TypeScript code for the Coveo Cloud Platform.
+
+The current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript), but most code examples were rewritten in TypeScript.
 
 If you are somewhat new to JavaScript with ES6, we recommend you read the full [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). Feel free to use additional resources, there are tons of it out there.
 
 If you are somewhat new to TypeScript, we recommend you follow this [5 minutes tutorial](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html), and read the official [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html) in full.
-  
+
 <h3 id="intro--why">Code standards, what for?</h3>
 
-Adopting code standards means ranking the importance of code clarity and team conventions higher than personal style. In a more pragmatical perspective, we also believe that code standards have very positive and tangible effects on a team workflow:  
-  1. __Team members get productive time back by avoiding subjective code style debates__. If the code doesn't respect team conventions, simply point the author to the commonly accepted code standard that must be respected. 
-  1. __Code reviews' focus are redirected towards what is most critical:__ 
-      1. _Code architecture_ (Is there a better/more intelligent way to handle the use case at hand?)
-      1. _Code fidelity_ (Will the code crash in real life situations? Are all possible cases handled?)  
-      1. _Code quality_ (Is the code well tested, meaningful, and DRY?) 
-  1. __The code base gets easier to read and navigate for team members.__  
-  1. __Written standards (as opposed to implicit, word-to-mouth standards) allow newcomers to get up to speed faster by knowing how to write proper code from day one.__  
-  
+Adopting code standards means ranking the importance of code clarity and team conventions higher than personal style. In a more pragmatical perspective, we also believe that code standards have very positive and tangible effects on a team workflow:
+
+1. **Team members get productive time back by avoiding subjective code style debates**. If the code doesn't respect team conventions, simply point the author to the commonly accepted code standard that must be respected.
+1. **Code reviews' focus are redirected towards what is most critical:**
+    1. _Code architecture_ (Is there a better/more intelligent way to handle the use case at hand?)
+    1. _Code fidelity_ (Will the code crash in real life situations? Are all possible cases handled?)
+    1. _Code quality_ (Is the code well tested, meaningful, and DRY?)
+1. **The code base gets easier to read and navigate for team members.**
+1. **Written standards (as opposed to implicit, word-to-mouth standards) allow newcomers to get up to speed faster by knowing how to write proper code from day one.**
+
 In summary, code standards make developers happier. Embrace them.
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
-  1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Control Statements](#control-statements)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
-  1. [jQuery](#jquery)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Testing](#testing)
-  1. [Reviewing](#reviewing)
-  1. [Being Reviewed](#being-reviewed)
-  1. [TypeScript](#typescript)
-  1. [Libraries and Frameworks](#libraries-and-frameworks)
-  1. [Notes on Legacy Code](#notes-on-legacy-code)
-  1. [Remaining Sections](#remaining-sections)
+1. [Types](#types)
+1. [References](#references)
+1. [Objects](#objects)
+1. [Arrays](#arrays)
+1. [Destructuring](#destructuring)
+1. [Strings](#strings)
+1. [Functions](#functions)
+1. [Arrow Functions](#arrow-functions)
+1. [Classes & Constructors](#classes--constructors)
+1. [Modules](#modules)
+1. [Iterators and Generators](#iterators-and-generators)
+1. [Properties](#properties)
+1. [Variables](#variables)
+1. [Hoisting](#hoisting)
+1. [Comparison Operators & Equality](#comparison-operators--equality)
+1. [Blocks](#blocks)
+1. [Control Statements](#control-statements)
+1. [Comments](#comments)
+1. [Whitespace](#whitespace)
+1. [Commas](#commas)
+1. [Semicolons](#semicolons)
+1. [Type Casting & Coercion](#type-casting--coercion)
+1. [Naming Conventions](#naming-conventions)
+1. [Accessors](#accessors)
+1. [Events](#events)
+1. [jQuery](#jquery)
+1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
+1. [Testing](#testing)
+1. [Reviewing](#reviewing)
+1. [Being Reviewed](#being-reviewed)
+1. [TypeScript](#typescript)
+1. [Libraries and Frameworks](#libraries-and-frameworks)
+1. [Notes on Legacy Code](#notes-on-legacy-code)
+1. [Remaining Sections](#remaining-sections)
 
 ## Types
 
-Since this part appeared to have a more educational purpose, you can refer to the original [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript#types) for more information.  
-  
+Since this part appeared to have a more educational purpose, you can refer to the original [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript#types) for more information.
 
 **[⬆ back to top](#table-of-contents)**
 
 ## References
 
-  <a name="references--prefer-const"></a><a name="1.1"></a>
-  - [1.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. 
+<a name="references--prefer-const"></a><a name="1.1"></a>
+
+-   [1.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`.
 
     > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
 
@@ -90,8 +92,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const b = 2;
     ```
 
-  <a name="references--disallow-var"></a><a name="1.2"></a>
-  - [1.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. 
+<a name="references--disallow-var"></a><a name="1.2"></a>
+
+-   [1.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`.
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
 
@@ -99,24 +102,25 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     var count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
 
     // good, use the let.
     let count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
     ```
 
-  <a name="references--block-scope"></a><a name="1.3"></a>
-  - [1.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+<a name="references--block-scope"></a><a name="1.3"></a>
+
+-   [1.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
 
     ```typescript
     // const and let only exist in the blocks they are defined in.
     {
-      let a = 1;
-      const b = 1;
+        let a = 1;
+        const b = 1;
     }
     console.log(a); // ReferenceError
     console.log(b); // ReferenceError
@@ -126,37 +130,41 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Objects
 
-  <a name="objects--no-new"></a><a name="2.1"></a>
-  - [2.1](#objects--no-new) Use the literal syntax for object creation. 
+<a name="objects--no-new"></a><a name="2.1"></a>
+
+-   [2.1](#objects--no-new) Use the literal syntax for object creation.
 
     ```typescript
     // bad
     const item: Interface = new Object();
 
     // good
-    const item: Interface = { value: 1 };
+    const item: Interface = {value: 1};
     ```
-  <a name="es6-object-shorthand"></a><a name="2.2"></a>
-  - [2.2](#es6-object-arrow-method) Methods defined on objects should use arrow functions. 
+
+    <a name="es6-object-shorthand"></a><a name="2.2"></a>
+
+-   [2.2](#es6-object-arrow-method) Methods defined on objects should use arrow functions.
 
     ```typescript
     // bad
     const atom: Interface = {
-      value: 1,
-      addValue: function (value: number): number {
-        return atom.value + value;
-      },
+        value: 1,
+        addValue: function(value: number): number {
+            return atom.value + value;
+        },
     };
 
     // good
     const atom: Interface = {
-      value: 1,
-      addValue: (value: number): number => value + 1,
+        value: 1,
+        addValue: (value: number): number => value + 1,
     };
     ```
 
-  <a name="es6-object-concise"></a><a name="2.3"></a>
-  - [2.3](#es6-object-concise) Use property value shorthand. 
+<a name="es6-object-concise"></a><a name="2.3"></a>
+
+-   [2.3](#es6-object-concise) Use property value shorthand.
 
     > Why? It is shorter to write and descriptive.
 
@@ -165,17 +173,18 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // bad
     const obj: Interface = {
-      lukeSkywalker: lukeSkywalker,
+        lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj: Interface = {
-      lukeSkywalker,
+        lukeSkywalker,
     };
     ```
 
-  <a name="objects--grouped-shorthand"></a><a name="2.4"></a>
-  - [2.4](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+<a name="objects--grouped-shorthand"></a><a name="2.4"></a>
+
+-   [2.4](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
 
     > Why? It's easier to tell which properties are using the shorthand.
 
@@ -185,60 +194,63 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // bad
     const obj: Interface = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        lukeSkywalker,
+        episodeThree: 3,
+        mayTheFourth: 4,
+        anakinSkywalker,
     };
 
     // good
     const obj: Interface = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
+        lukeSkywalker,
+        anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        episodeThree: 3,
+        mayTheFourth: 4,
     };
     ```
 
-  <a name="objects--quoted-props"></a><a name="2.5"></a>
-  - [2.5](#objects--quoted-props) Only quote properties that are invalid identifiers. 
+<a name="objects--quoted-props"></a><a name="2.5"></a>
+
+-   [2.5](#objects--quoted-props) Only quote properties that are invalid identifiers.
 
     > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
     ```typescript
     // bad
     const bad: Interface = {
-      'foo': 3,
-      'bar': 4,
-      'data-blah': 5,
+        foo: 3,
+        bar: 4,
+        'data-blah': 5,
     };
 
     // good
     const good: Interface = {
-      foo: 3,
-      bar: 4,
-      'data-blah': 5,
+        foo: 3,
+        bar: 4,
+        'data-blah': 5,
     };
     ```
-  <a name="objects--shallow-copy"></a><a name="2.6"></a>
-  - [2.6](#objects--shallow-copy) Use Underscore's [`extend`](http://underscorejs.org/#extend) and [`omit`](http://underscorejs.org/#omit) functions to shallow-copy objects, and make sure not to mutate the original object... 
+
+    <a name="objects--shallow-copy"></a><a name="2.6"></a>
+
+-   [2.6](#objects--shallow-copy) Use Underscore's [`extend`](http://underscorejs.org/#extend) and [`omit`](http://underscorejs.org/#omit) functions to shallow-copy objects, and make sure not to mutate the original object...
 
     ```typescript
     // very bad
-    const original: Interface = { a: 1, b: 2 };
-    const copy: Interface = _.extend(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+    const original: Interface = {a: 1, b: 2};
+    const copy: Interface = _.extend(original, {c: 3}); // this mutates `original` ಠ_ಠ
     delete copy.a; // so does this
 
     // good
-    const original: Interface = { a: 1, b: 2 };
-    const copy: Interface = _.extend({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+    const original: Interface = {a: 1, b: 2};
+    const copy: Interface = _.extend({}, original, {c: 3}); // copy => { a: 1, b: 2, c: 3 }
 
     // good
-    const original: Interface = { a: 1, b: 2 };
+    const original: Interface = {a: 1, b: 2};
     const copy: Interface = _.omit(original, 'a'); // copy => { b: 2 }, _.omit does not mutate `original`
     ```
 
@@ -246,8 +258,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Arrays
 
-  <a name="arrays--literals"></a><a name="3.1"></a>
-  - [3.1](#arrays--literals) Use the literal syntax for array creation. 
+<a name="arrays--literals"></a><a name="3.1"></a>
+
+-   [3.1](#arrays--literals) Use the literal syntax for array creation.
 
     ```typescript
     // bad
@@ -256,13 +269,15 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // good
     const items: Interface[] = [];
     ```
-  <a name="arrays--callback-return"></a><a name="3.2"></a>
-  - [3.2](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement. We also encourage the use of the ternary operator in simple if/else cases. 
+
+    <a name="arrays--callback-return"></a><a name="3.2"></a>
+
+-   [3.2](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement. We also encourage the use of the ternary operator in simple if/else cases.
 
     ```typescript
     // bad
     [1, 2, 3].map((x: number): number => {
-      return x + 1;
+        return x + 1;
     });
 
     // good
@@ -270,20 +285,21 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // good
     [1, 2, 3].map((x: number): number => {
-      const y = x + 1;
-      return x * y;
+        const y = x + 1;
+        return x * y;
     });
 
     // good
     inbox.filter((msg: string): boolean => {
-      if (msg.subject === 'Mockingbird') {
-        return msg.author === 'Harper Lee';
-      } else if (msg.subject === 'AnotherSubject') {
-        return msg.author === 'The Author';  
-      }
+        if (msg.subject === 'Mockingbird') {
+            return msg.author === 'Harper Lee';
+        } else if (msg.subject === 'AnotherSubject') {
+            return msg.author === 'The Author';
+        }
 
-      return false;
+        return false;
     });
+    ```
 
 
     /* Simple if/else cases */
@@ -297,7 +313,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
       }
     });
 
-    // best 
+    // best
     inbox.filter((msg: string): boolean => msg.subject === 'Mockingbird'
         ? msg.author === 'Harper Lee'
         : false
@@ -307,70 +323,69 @@ Since this part appeared to have a more educational purpose, you can refer to th
 **[⬆ back to top](#table-of-contents)**
 
 <a name="arrays--bracket-newline"></a><a name="3.3"></a>
-  - [3.3](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
 
-  ```typescript
-  // bad
-  const arr: number[][] = [
-    [0, 1], [2, 3], [4, 5],
-  ];
+-   [3.3](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
 
-  const objectInArray: Interface[] = [{
-    id: 1,
-  }, {
-    id: 2,
-  }];
+```typescript
+// bad
+const arr: number[][] = [[0, 1], [2, 3], [4, 5]];
 
-  const numberInArray: number[] = [
-    1, 2,
-  ];
-
-  // good
-  const arr: number[][] = [[0, 1], [2, 3], [4, 5]];
-
-  const objectInArray: Interface[] = [
+const objectInArray: Interface[] = [
     {
-      id: 1,
+        id: 1,
     },
     {
-      id: 2,
+        id: 2,
     },
-  ];
+];
 
-  const numberInArray: number[] = [
-    1,
-    2,
-  ];
-  ```
+const numberInArray: number[] = [1, 2];
+
+// good
+const arr: number[][] = [[0, 1], [2, 3], [4, 5]];
+
+const objectInArray: Interface[] = [
+    {
+        id: 1,
+    },
+    {
+        id: 2,
+    },
+];
+
+const numberInArray: number[] = [1, 2];
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Destructuring
 
+<a name="destructuring--object"></a><a name="4.1"></a>
 
-  <a name="destructuring--object"></a><a name="4.1"></a>
-  - [4.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. 
+-   [4.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object.
 
     > Why? Destructuring saves you from creating temporary references for those properties.
 
     ```typescript
     // bad
     const getFullName = (user: User): string => {
-      const firstName = user.personalInformation.firstName;
-      const lastName = user.personalInformation.lastName;
+        const firstName = user.personalInformation.firstName;
+        const lastName = user.personalInformation.lastName;
 
-      return `${firstName} ${lastName}`;
-    }
+        return `${firstName} ${lastName}`;
+    };
 
     // good
     const getFullName = (user: User): string => {
-      const { firstName, lastName } = user.personalInformation;
-      return `${firstName} ${lastName}`;
-    }
+        const {firstName, lastName} = user.personalInformation;
+        return `${firstName} ${lastName}`;
+    };
     ```
 
-  <a name="destructuring--array"></a><a name="4.2"></a>
-  - [4.2](#destructuring--array) Use array destructuring.
+<a name="destructuring--array"></a><a name="4.2"></a>
+
+-   [4.2](#destructuring--array) Use array destructuring.
+
     ```typescript
     const arr: number[] = [1, 2, 3, 4];
 
@@ -382,39 +397,43 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const [first, second] = arr;
     ```
 
-  <a name="destructuring--object-over-array"></a><a name="4.3"></a>
-  - [4.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring.
+<a name="destructuring--object-over-array"></a><a name="4.3"></a>
+
+-   [4.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring.
+
     > Why? You can add new properties over time or change the order of things without breaking call sites.
 
     ```typescript
     // bad
     const processInput = (input: Input): ProcessedInput => {
-      // then a miracle occurs
-      return [left, right, top, bottom];
-    }
+        // then a miracle occurs
+        return [left, right, top, bottom];
+    };
 
     // the caller needs to think about the order of return data
     const [left, __, top] = processInput(input);
 
     // good
     const processInput = (input: Input): ProcessedInput => {
-      // then a miracle occurs
-      return { left, right, top, bottom };
-    }
+        // then a miracle occurs
+        return {left, right, top, bottom};
+    };
 
     // the caller selects only the data they need
-    const { left, top } = processInput(input);
+    const {left, top} = processInput(input);
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
 
-  <a name="strings--quotes"></a><a name="5.1"></a>
-  - [5.1](#strings--quotes) Use single quotes `''` for strings. 
+<a name="strings--quotes"></a><a name="5.1"></a>
+
+-   [5.1](#strings--quotes) Use single quotes `''` for strings.
 
     ```typescript
     // bad
-    const name: string = "Capt. Janeway";
+    const name: string = 'Capt. Janeway';
 
     // bad - template literals should contain interpolation or newlines
     const name: string = `Capt. Janeway`;
@@ -423,29 +442,34 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const name: string = 'Capt. Janeway';
     ```
 
-  <a name="strings--line-length"></a><a name="5.2"></a>
-  - [5.2](#strings--line-length) Strings that cause the line to go over 140 characters should not be written across multiple lines using string concatenation.
+<a name="strings--line-length"></a><a name="5.2"></a>
+
+-   [5.2](#strings--line-length) Strings that cause the line to go over 140 characters should not be written across multiple lines using string concatenation.
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
     ```typescript
     // bad
-    const errorMessage: string = 'This is a super long error that was thrown because \
+    const errorMessage: string =
+        'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
     // bad
-    const errorMessage: string = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+    const errorMessage: string =
+        'This is a super long error that was thrown because ' +
+        'of Batman. When you stop to think about how Batman had anything to do ' +
+        'with this, you would get nowhere fast.';
 
     // good
-    const errorMessage: string = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    const errorMessage: string =
+        'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
-  <a name="es6-template-literals"></a><a name="5.3"></a>
-  - [5.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. 
+<a name="es6-template-literals"></a><a name="5.3"></a>
+
+-   [5.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation.
 
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
@@ -457,28 +481,30 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const sayHi = (name: string): string => ['How are you, ', name, '?'].join();
 
     // bad
-    const sayHi = (name: string): string => `How are you, ${ name }?`;
+    const sayHi = (name: string): string => `How are you, ${name}?`;
 
     // good
     const sayHi = (name: string): string => `How are you, ${name}?`;
     ```
 
-  <a name="strings--escaping"></a><a name="5.4"></a>
-  - [5.4](#strings--escaping) Do not unnecessarily escape characters in strings. 
+<a name="strings--escaping"></a><a name="5.4"></a>
+
+-   [5.4](#strings--escaping) Do not unnecessarily escape characters in strings.
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
     ```typescript
     // bad
-    const foo: string = '\'this\' \i\s \"quoted\"';
+    const foo: string = '\'this\' is "quoted"';
 
     // good
     const foo: string = `'this' is "quoted"`;
     const foo: string = `my name is '${name}'`;
     ```
 
-  <a name="strings--localization"></a><a name="5.5"></a>
-  - [5.5](#strings--localization) Never hardcode a string that will appear in the UI in the code base. Localize the string in a dedicated json file. 
+<a name="strings--localization"></a><a name="5.5"></a>
+
+-   [5.5](#strings--localization) Never hardcode a string that will appear in the UI in the code base. Localize the string in a dedicated json file.
 
     > Why? Coveo develops international products, strings appearing in the UI can be translated in multiple languages, thus we localize them.
 
@@ -486,51 +512,55 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Functions
 
-  <a name="functions--declarations"></a><a name="6.1"></a>
-  - [6.1](#functions--declarations) Use named function expressions instead of function declarations. Prefer arrow functions if you do not absolutely need `function` to retrieve the proper `this` context. Most importantly, define functions as a method inside a class whenever possible.  
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! 
+<a name="functions--declarations"></a><a name="6.1"></a>
+
+-   [6.1](#functions--declarations) Use named function expressions instead of function declarations. Prefer arrow functions if you do not absolutely need `function` to retrieve the proper `this` context. Most importantly, define functions as a method inside a class whenever possible.
+
+    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module!
 
     ```typescript
     // bad
-    const foo = function (bar: Interface): ReturnedInterface {
-      // ...
+    const foo = function(bar: Interface): ReturnedInterface {
+        // ...
     };
 
     // bad
     const foo = function bar(bar: Interface): ReturnedInterface {
-      // ...
+        // ...
     };
 
     // good
     const foo = (bar: Interface): ReturnedInterface => {
-      // ...
+        // ...
     };
 
     // best (declare functions as methods inside classes)
     class MyClass {
-      foo(bar: Interface): ReturnedInterface {
-        // ...
-      }
+        foo(bar: Interface): ReturnedInterface {
+            // ...
+        }
     }
-    ```  
+    ```
 
-  <a name="functions--arguments-shadow"></a><a name="6.2"></a>
-  - [6.2](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+<a name="functions--arguments-shadow"></a><a name="6.2"></a>
+
+-   [6.2](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
     ```typescript
     // bad
     const foo = (name: string, options: Options, arguments: Arguments): ReturnedInterface => {
-      // ...
+        // ...
     };
 
     // good
     const foo = (name: string, options: Options, args: Arguments): ReturnedInterface => {
-      // ...
+        // ...
     };
     ```
 
-  <a name="es6-default-parameters"></a><a name="6.3"></a>
-  - [6.3](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+<a name="es6-default-parameters"></a><a name="6.3"></a>
+
+-   [6.3](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
 
     ```typescript
     // really bad
@@ -555,36 +585,41 @@ Since this part appeared to have a more educational purpose, you can refer to th
       // ...
     };
     ```
-  <a name="functions--reassign-params"></a><a name="6.4"></a>
-  - [6.4](#functions--reassign-params) Never reassign parameters. 
+
+    <a name="functions--reassign-params"></a><a name="6.4"></a>
+
+-   [6.4](#functions--reassign-params) Never reassign parameters.
 
     > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
 
     ```typescript
     // bad
     const f1 = (a: number) => {
-      a = 1;
-      // ...
+        a = 1;
+        // ...
     };
 
     const f2 = (a?: number) => {
-      if (!a) { a = 1; }
-      // ...
+        if (!a) {
+            a = 1;
+        }
+        // ...
     };
 
     // good
     const f3 = (a?: number) => {
-      const b: number = a || 1;
-      // ...
+        const b: number = a || 1;
+        // ...
     };
 
     const f4 = (a: number = 1) => {
-      // ...
+        // ...
     };
     ```
 
-  <a name="functions--spread-vs-apply"></a><a name="6.5"></a>
-  - [6.5](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. 
+<a name="functions--spread-vs-apply"></a><a name="6.5"></a>
+
+-   [6.5](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions.
 
     > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
 
@@ -598,79 +633,71 @@ Since this part appeared to have a more educational purpose, you can refer to th
     console.log(...x);
 
     // bad
-    new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+    new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]))();
 
     // good
     new Date(...[2016, 8, 5]);
     ```
 
-  <a name="functions--signature-invocation-indentation"></a><a name="6.6"></a>
-  - [6.6](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+<a name="functions--signature-invocation-indentation"></a><a name="6.6"></a>
+
+-   [6.6](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
 
     ```typescript
     // bad
-    const foo = (bar: string,
-                 baz: number,
-                 quux: number) => {
-      // ...
-    }
+    const foo = (bar: string, baz: number, quux: number) => {
+        // ...
+    };
 
     // good
-    const foo = (
-      bar: string,
-      baz: number,
-      quux: number,
-    ) => {
-      // ...
-    }
+    const foo = (bar: string, baz: number, quux: number) => {
+        // ...
+    };
 
     // bad
-    console.log(foo,
-      bar,
-      baz);
+    console.log(foo, bar, baz);
 
     // good
-    console.log(
-      foo,
-      bar,
-      baz,
-    );
+    console.log(foo, bar, baz);
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
 
-  <a name="arrows--use-them"></a><a name="7.1"></a>
-  - [7.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation. 
+<a name="arrows--use-them"></a><a name="7.1"></a>
+
+-   [7.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation.
+
     > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax. Only use `function` if really needed.
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
 
     ```typescript
-    // bad 
-    [1, 2, 3].map(function (x: number): number {
-      const y: number = x + 1;
-      return x * y;
+    // bad
+    [1, 2, 3].map(function(x: number): number {
+        const y: number = x + 1;
+        return x * y;
     });
 
     // good
     [1, 2, 3].map((x: number): number => {
-      const y: number = x + 1;
-      return x * y;
+        const y: number = x + 1;
+        return x * y;
     });
     ```
 
-  <a name="arrows--implicit-return"></a><a name="7.2"></a>
-  - [7.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. 
+<a name="arrows--implicit-return"></a><a name="7.2"></a>
+
+-   [7.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement.
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
     ```typescript
     // bad
     [1, 2, 3].map((x: number): string => {
-      const nextValue: number = x + 1;
-      `A string containing the ${nextValue}.`;
+        const nextValue: number = x + 1;
+        `A string containing the ${nextValue}.`;
     });
 
     // good
@@ -678,40 +705,39 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // good
     [1, 2, 3].map((x: number): string => {
-      const nextValue: number = x + 1;
-      return `A string containing the ${nextValue}.`;
+        const nextValue: number = x + 1;
+        return `A string containing the ${nextValue}.`;
     });
 
     // good
     [1, 2, 3].map((x: number, index: number): {[key: number]: number} => ({
-      [index]: x,
+        [index]: x,
     }));
     ```
 
-  <a name="arrows--paren-wrap"></a><a name="7.3"></a>
-  - [7.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+<a name="arrows--paren-wrap"></a><a name="7.3"></a>
+
+-   [7.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
 
     > Why? It shows clearly where the function starts and ends.
 
     ```typescript
     // bad
-    ['get', 'post', 'put'].map((httpMethod: string): ReturnedInterface => Object.prototype.hasOwnProperty.call(
-        httpMagicObjectWithAVeryLongName,
-        httpMethod,
-      )
+    ['get', 'post', 'put'].map(
+        (httpMethod: string): ReturnedInterface =>
+            Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod)
     );
 
     // good
-    ['get', 'post', 'put'].map((httpMethod: string): boolean => (
-      Object.prototype.hasOwnProperty.call(
-        httpMagicObjectWithAVeryLongName,
-        httpMethod,
-      )
-    ));
+    ['get', 'post', 'put'].map((httpMethod: string): boolean =>
+        Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod)
+    );
     ```
 
-  <a name="arrows--one-arg-parens"></a><a name="7.4"></a>
-  - [7.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency.
+<a name="arrows--one-arg-parens"></a><a name="7.4"></a>
+
+-   [7.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency.
+
     > Why? Less visual clutter. Scopes the parameter with its type.
 
     ```typescript
@@ -726,20 +752,21 @@ Since this part appeared to have a more educational purpose, you can refer to th
     ));
     ```
 
-  <a name="arrows--confusing"></a><a name="7.5"></a>
-  - [7.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). 
+<a name="arrows--confusing"></a><a name="7.5"></a>
+
+-   [7.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`).
 
     ```typescript
     // bad
-    const itemHeight = (item: Item): string => item.height > 256 ? item.largeSize : item.smallSize;
+    const itemHeight = (item: Item): string => (item.height > 256 ? item.largeSize : item.smallSize);
 
     // good
     const itemHeight = (item: Item): string => (item.height > 256 ? item.largeSize : item.smallSize);
 
     // good
     const itemHeight = (item: Item): string => {
-      const { height, largeSize, smallSize } = item;
-      return height > 256 ? largeSize : smallSize;
+        const {height, largeSize, smallSize} = item;
+        return height > 256 ? largeSize : smallSize;
     };
     ```
 
@@ -747,37 +774,39 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Classes & Constructors
 
-  <a name="constructors--use-class"></a><a name="8.1"></a>
-  - [8.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+<a name="constructors--use-class"></a><a name="8.1"></a>
+
+-   [8.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
 
     > Why? `class` syntax is more concise and easier to reason about.
 
     ```typescript
     // bad
     function Queue(contents: any[] = []) {
-      this.queue = [...contents];
+        this.queue = [...contents];
     }
-    Queue.prototype.pop = function () {
-      const value: any = this.queue[0];
-      this.queue.splice(0, 1);
-      return value;
+    Queue.prototype.pop = function() {
+        const value: any = this.queue[0];
+        this.queue.splice(0, 1);
+        return value;
     };
 
     // good
     class Queue {
-      constructor(contents: any[] = []) {
-        this.queue = [...contents];
-      }
-      pop() {
-        const value: any = this.queue[0];
-        this.queue.splice(0, 1);
-        return value;
-      }
+        constructor(contents: any[] = []) {
+            this.queue = [...contents];
+        }
+        pop() {
+            const value: any = this.queue[0];
+            this.queue.splice(0, 1);
+            return value;
+        }
     }
     ```
 
-  <a name="constructors--extends"></a><a name="8.2"></a>
-  - [8.2](#constructors--extends) Use `extends` for inheritance.
+<a name="constructors--extends"></a><a name="8.2"></a>
+
+-   [8.2](#constructors--extends) Use `extends` for inheritance.
 
     > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
 
@@ -785,31 +814,32 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
-      Queue.apply(this, contents);
+        Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = () => this.queue[0];
 
     // good
     class PeekableQueue extends Queue {
-      peek() {
-        return this.queue[0];
-      }
+        peek() {
+            return this.queue[0];
+        }
     }
     ```
 
-  <a name="constructors--chaining"></a><a name="8.3"></a>
-  - [8.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+<a name="constructors--chaining"></a><a name="8.3"></a>
+
+-   [8.3](#constructors--chaining) Methods can return `this` to help with method chaining.
 
     ```typescript
     // bad
-    Jedi.prototype.jump = function (): boolean {
-      this.jumping = true;
-      return true;
+    Jedi.prototype.jump = function(): boolean {
+        this.jumping = true;
+        return true;
     };
 
-    Jedi.prototype.setHeight = function (height: number) {
-      this.height = height;
+    Jedi.prototype.setHeight = function(height: number) {
+        this.height = height;
     };
 
     const luke: Jedi = new Jedi();
@@ -818,50 +848,50 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // good
     class Jedi {
-      private jumping: boolean;
-      private height: number;
+        private jumping: boolean;
+        private height: number;
 
-      jump(): Jedi {
-        this.jumping = true;
-        return this;
-      }
+        jump(): Jedi {
+            this.jumping = true;
+            return this;
+        }
 
-      setHeight(height: number): Jedi {
-        this.height = height;
-        return this;
-      }
+        setHeight(height: number): Jedi {
+            this.height = height;
+            return this;
+        }
     }
 
     const luke: Jedi = new Jedi();
 
-    luke
-      .jump()
-      .setHeight(20);
+    luke.jump().setHeight(20);
     ```
 
-  <a name="constructors--tostring"></a><a name="8.4"></a>
-  - [8.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+<a name="constructors--tostring"></a><a name="8.4"></a>
+
+-   [8.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```typescript
     class Jedi {
-      private name: string;
+        private name: string;
 
-      constructor(options: Options = {}) {
-        this.name = options.name || 'no name';
-      }
+        constructor(options: Options = {}) {
+            this.name = options.name || 'no name';
+        }
 
-      getName(): string {
-        return this.name;
-      }
+        getName(): string {
+            return this.name;
+        }
 
-      toString(): string {
-        return `Jedi - ${this.getName()}`;
-      }
+        toString(): string {
+            return `Jedi - ${this.getName()}`;
+        }
     }
     ```
 
-  <a name="constructors--no-useless"></a><a name="8.5"></a>
-  - [8.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. 
+<a name="constructors--no-useless"></a><a name="8.5"></a>
+
+-   [8.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary.
 
     ```typescript
     // bad
@@ -895,8 +925,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Modules
 
-  <a name="modules--use-them"></a><a name="9.1"></a>
-  - [9.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system.
+<a name="modules--use-them"></a><a name="9.1"></a>
+
+-   [9.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system.
 
     > Why? Modules are the future, let's start using the future now.
 
@@ -910,8 +941,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     export es6;
     ```
 
-  <a name="modules--no-wildcard"></a><a name="9.2"></a>
-  - [9.2](#modules--no-wildcard) Do not use wildcard (unless you're forced to) or default imports/exports.
+<a name="modules--no-wildcard"></a><a name="9.2"></a>
+
+-   [9.2](#modules--no-wildcard) Do not use wildcard (unless you're forced to) or default imports/exports.
 
     > Why? This makes sure you have a single default export.
 
@@ -924,14 +956,15 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     import AirbnbStyleGuide from './AirbnbStyleGuide'; inside another file
 
-    // good 
+    // good
     export AirbnbStyleGuide; // inside one file
 
     import { AirbnbStyleGuide } from './AirbnbStyleGuide'; // inside another file
     ```
 
-  <a name="modules--no-export-from-import"></a><a name="9.3"></a>
-  - [9.3](#modules--no-export-from-import) And do not export directly from an import.
+<a name="modules--no-export-from-import"></a><a name="9.3"></a>
+
+-   [9.3](#modules--no-export-from-import) And do not export directly from an import.
 
     > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
 
@@ -946,30 +979,29 @@ Since this part appeared to have a more educational purpose, you can refer to th
     export es6;
     ```
 
-  <a name="modules--no-duplicate-imports"></a>
-  - [9.4](#modules--no-duplicate-imports) Only import from a path in one place, and each import should be on its own line.
- 
+<a name="modules--no-duplicate-imports"></a>
+
+-   [9.4](#modules--no-duplicate-imports) Only import from a path in one place, and each import should be on its own line.
+
     > Why? Having multiple lines that import from the same path can make code harder to maintain.
 
     ```typescript
     // bad
-    import { named1 } from 'foo';
+    import {named1} from 'foo';
     // … some other imports … //
-    import { named2 } from 'foo';
+    import {named2} from 'foo';
 
     // bad
-    import { named1, named2 } from 'foo';
+    import {named1, named2} from 'foo';
 
-    // 
-    import foo, {
-      named1,
-      named2,
-    } from 'foo';
+    //
+    import foo, {named1, named2} from 'foo';
     ```
 
-  <a name="modules--no-mutable-exports"></a>
-  - [9.5](#modules--no-mutable-exports) Do not export mutable bindings.
- 
+<a name="modules--no-mutable-exports"></a>
+
+-   [9.5](#modules--no-mutable-exports) Do not export mutable bindings.
+
     > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
 
     ```typescript
@@ -979,27 +1011,30 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // good
     export const foo: number = 3;
     ```
-  <a name="modules--imports-first"></a>
-  - [9.6](#modules--imports-first) Put all `import`s above non-import statements.
- 
+
+    <a name="modules--imports-first"></a>
+
+-   [9.6](#modules--imports-first) Put all `import`s above non-import statements.
+
     > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
 
     ```typescript
     // bad
-    import { foo } from 'foo';
+    import {foo} from 'foo';
     foo.init();
 
-    import { bar } from 'bar';
+    import {bar} from 'bar';
 
     // good
-    import { foo } from 'foo';
-    import { bar } from 'bar';
+    import {foo} from 'foo';
+    import {bar} from 'bar';
 
     foo.init();
     ```
 
-  <a name="modules--multiline-imports-over-newlines"></a>
-  - [9.7](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
+<a name="modules--multiline-imports-over-newlines"></a>
+
+-   [9.7](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
 
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
 
@@ -1008,21 +1043,16 @@ Since this part appeared to have a more educational purpose, you can refer to th
     import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
 
     // good
-    import {
-      longNameA,
-      longNameB,
-      longNameC,
-      longNameD,
-      longNameE,
-    } from 'path';
+    import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Iterators and Generators
 
-  <a name="iterators--nope"></a><a name="10.1"></a>
-  - [10.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. 
+<a name="iterators--nope"></a><a name="10.1"></a>
+
+-   [10.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`.
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1034,7 +1064,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     let sum: number = 0;
     for (let num: number of numbers) {
-      sum += num;
+        sum += num;
     }
     sum === 15;
 
@@ -1045,15 +1075,16 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     const increasedByOne: number[] = [];
     for (let i: number = 0; i < numbers.length; i++) {
-      increasedByOne.push(numbers[i] + 1);
+        increasedByOne.push(numbers[i] + 1);
     }
 
     // best (keeping it functional)
     const increasedByOne: number[] = numbers.map((num: number): number => num + 1);
     ```
 
-  <a name="generators--nope"></a><a name="10.2"></a>
-  - [10.2](#generators--nope) Don't use generators for now.
+<a name="generators--nope"></a><a name="10.2"></a>
+
+-   [10.2](#generators--nope) Don't use generators for now.
 
     > Why? They don't transpile well to ES5.
 
@@ -1061,13 +1092,14 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Properties
 
-  <a name="properties--dot"></a><a name="11.1"></a>
-  - [11.1](#properties--dot) Use dot notation when accessing properties. 
+<a name="properties--dot"></a><a name="11.1"></a>
+
+-   [11.1](#properties--dot) Use dot notation when accessing properties.
 
     ```typescript
     const luke: Interface = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     // bad
@@ -1077,13 +1109,14 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const isJedi: boolean = luke.jedi;
     ```
 
-  <a name="properties--bracket"></a><a name="11.2"></a>
-  - [11.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
+<a name="properties--bracket"></a><a name="11.2"></a>
+
+-   [11.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
 
     ```typescript
     const luke: Interface = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     const getProp = (prop: string) => luke[prop];
@@ -1095,8 +1128,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Variables
 
-  <a name="variables--const"></a><a name="12.1"></a>
-  - [12.1](#variables--const) Always use `const` or `let` (not `var`) to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. 
+<a name="variables--const"></a><a name="12.1"></a>
+
+-   [12.1](#variables--const) Always use `const` or `let` (not `var`) to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```typescript
     // bad
@@ -1106,8 +1140,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const superPower: SuperPower = new SuperPower();
     ```
 
-  <a name="variables--one-const"></a><a name="12.2"></a>
-  - [12.2](#variables--one-const) Use one `const` or `let` declaration per variable. 
+<a name="variables--one-const"></a><a name="12.2"></a>
+
+-   [12.2](#variables--one-const) Use one `const` or `let` declaration per variable.
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
@@ -1121,7 +1156,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // (compare to above, and try to spot the mistake)
     const items: Item[] = getItems(),
         goSportsTeam: boolean = true;
-        dragonball: string = 'z';
+    dragonball: string = 'z';
 
     // good
     const items: Item[] = getItems();
@@ -1129,8 +1164,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const dragonball: string = 'z';
     ```
 
-  <a name="variables--const-let-group"></a><a name="12.3"></a>
-  - [12.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
+<a name="variables--const-let-group"></a><a name="12.3"></a>
+
+-   [12.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
@@ -1148,46 +1184,49 @@ Since this part appeared to have a more educational purpose, you can refer to th
     let len: number;
     ```
 
-  <a name="variables--define-where-used"></a><a name="12.4"></a>
-  - [12.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
+<a name="variables--define-where-used"></a><a name="12.4"></a>
+
+-   [12.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
 
     > Why? `let` and `const` are block scoped and not function scoped.
 
     ```typescript
     // bad - unnecessary function call
-    const checkName = (hasName: string): string|boolean => {
-      const name: string = getName();
+    const checkName = (hasName: string): string | boolean => {
+        const name: string = getName();
 
-      if (hasName === 'test') {
-        return false;
-      }
+        if (hasName === 'test') {
+            return false;
+        }
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
+        if (name === 'test') {
+            this.setName('');
+            return false;
+        }
 
-      return name;
-    }
+        return name;
+    };
 
     // good
-    const checkName = (hasName: string): string|boolean => {
-      if (hasName === 'test') {
-        return false;
-      }
+    const checkName = (hasName: string): string | boolean => {
+        if (hasName === 'test') {
+            return false;
+        }
 
-      const name: string = getName();
+        const name: string = getName();
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
+        if (name === 'test') {
+            this.setName('');
+            return false;
+        }
 
-      return name;
-    }
+        return name;
+    };
     ```
-  <a name="variables--unary-increment-decrement"></a><a name="12.5"></a>
-  - [12.5](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). 
+
+    <a name="variables--unary-increment-decrement"></a><a name="12.5"></a>
+
+-   [12.5](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --).
 
     > Why? Disallowing unary increment and decrement statements prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
@@ -1202,11 +1241,11 @@ Since this part appeared to have a more educational purpose, you can refer to th
     let sum: number = 0;
     let truthyCount: number = 0;
     for (let i: number = 0; i < array.length; i++) {
-      let value: number = array[i];
-      sum += value;
-      if (value) {
-        truthyCount++;
-      }
+        let value: number = array[i];
+        sum += value;
+        if (value) {
+            truthyCount++;
+        }
     }
 
     // good
@@ -1224,137 +1263,140 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Hoisting
 
-  Since this part appears to be more educational than anything else, you can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for more information about hoisting. In short, use [`const`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const) and [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and always avoid using `var`. 
+Since this part appears to be more educational than anything else, you can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for more information about hoisting. In short, use [`const`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const) and [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and always avoid using `var`.
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Comparison Operators & Equality
 
-  <a name="comparison--eqeqeq"></a><a name="13.1"></a>
-  - [13.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. 
+<a name="comparison--eqeqeq"></a><a name="13.1"></a>
 
-  <a name="comparison--if"></a><a name="13.2"></a>
-  - [13.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+-   [13.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`.
 
-    - **Objects** evaluate to **true**
-    - **Undefined** evaluates to **false**
-    - **Null** evaluates to **false**
-    - **Booleans** evaluate to **the value of the boolean**
-    - **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+<a name="comparison--if"></a><a name="13.2"></a>
+
+-   [13.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+
+    -   **Objects** evaluate to **true**
+    -   **Undefined** evaluates to **false**
+    -   **Null** evaluates to **false**
+    -   **Booleans** evaluate to **the value of the boolean**
+    -   **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
+    -   **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```typescript
     if ([0] && []) {
-      // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+        // true
+        // an array (even an empty one) is an object, objects will evaluate to true
     }
     ```
 
-  <a name="comparison--shortcuts"></a><a name="13.3"></a>
-  - [13.3](#comparison--shortcuts) Use shortcuts for conditionals as often as possible.
+<a name="comparison--shortcuts"></a><a name="13.3"></a>
+
+-   [13.3](#comparison--shortcuts) Use shortcuts for conditionals as often as possible.
 
     ```typescript
     // bad
     if (isValid === true) {
-      // ...
+        // ...
     }
 
     // good
     if (isValid) {
-      // ...
+        // ...
     }
 
     // bad (unless you are testing for empty string only and not all falsy values)
     if (name !== '') {
-      // ...
+        // ...
     }
 
     // good
     if (name) {
-      // ...
+        // ...
     }
 
     // bad
     if (collection.length > 0) {
-      // ...
+        // ...
     }
 
     // good
     if (collection.length) {
-      // ...
+        // ...
     }
     ```
 
-  <a name="comparison--moreinfo"></a><a name="13.4"></a>
-  - [13.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+<a name="comparison--moreinfo"></a><a name="13.4"></a>
 
-  <a name="comparison--switch-blocks"></a><a name="13.5"></a>
-  - [13.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
+-   [13.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+
+<a name="comparison--switch-blocks"></a><a name="13.5"></a>
+
+-   [13.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
     ```typescript
     // bad
     switch (foo) {
-      case 1:
-        let x: number = 1;
-        break;
-      case 2:
-        const y: number = 2;
-        break;
-      case 3:
-        const f = () => {
-          // ...
-        };
-        break;
-      default:
-        class C {}
+        case 1:
+            let x: number = 1;
+            break;
+        case 2:
+            const y: number = 2;
+            break;
+        case 3:
+            const f = () => {
+                // ...
+            };
+            break;
+        default:
+            class C {}
     }
 
     // good
     switch (foo) {
-      case 1: {
-        let x: number = 1;
-        break;
-      }
-      case 2: {
-        const y: number = 2;
-        break;
-      }
-      case 3: {
-        const f = () => {
-          // ...
+        case 1: {
+            let x: number = 1;
+            break;
         }
-        break;
-      }
-      case 4:
-        bar();
-        break;
-      default: {
-        class C {}
-      }
+        case 2: {
+            const y: number = 2;
+            break;
+        }
+        case 3: {
+            const f = () => {
+                // ...
+            };
+            break;
+        }
+        case 4:
+            bar();
+            break;
+        default: {
+            class C {}
+        }
     }
     ```
 
-  <a name="comparison--nested-ternaries"></a><a name="13.6"></a>
-  - [13.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
+<a name="comparison--nested-ternaries"></a><a name="13.6"></a>
+
+-   [13.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
 
     ```typescript
     // bad
-    const foo: string|null = maybe1 > maybe2
-      ? "bar"
-      : value1 > value2 ? "baz" : null;
+    const foo: string | null = maybe1 > maybe2 ? 'bar' : value1 > value2 ? 'baz' : null;
 
     // good
-    const maybeNull: string|null = value1 > value2 ? 'baz' : null;
+    const maybeNull: string | null = value1 > value2 ? 'baz' : null;
 
-    const foo: string|null = maybe1 > maybe2
-      ? 'bar'
-      : maybeNull;
+    const foo: string | null = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
-  <a name="comparison--unneeded-ternary"></a><a name="13.7"></a>
-  - [13.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
+<a name="comparison--unneeded-ternary"></a><a name="13.7"></a>
+
+-   [13.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
 
     ```typescript
     // bad
@@ -1372,53 +1414,56 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Blocks
 
-  <a name="blocks--braces"></a><a name="14.1"></a>
-  - [14.1](#blocks--braces) Always use braces for if/else blocks or functions with multiple statemets, and place statements on their own lines.
+<a name="blocks--braces"></a><a name="14.1"></a>
+
+-   [14.1](#blocks--braces) Always use braces for if/else blocks or functions with multiple statemets, and place statements on their own lines.
 
     ```typescript
     // bad
-    if (test)
-      return false;
+    if (test) return false;
 
     if (test) return false;
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
-    const foo = (): boolean => { const isTrue: boolean = true; return isTrue; };
+    const foo = (): boolean => {
+        const isTrue: boolean = true;
+        return isTrue;
+    };
 
     // good
     const bar = (): boolean => {
-      const isTrue: boolean = true;
-      return isTrue;
+        const isTrue: boolean = true;
+        return isTrue;
     };
 
     // good
     const foo = (bar: boolean): boolean => bar;
     ```
 
-  <a name="blocks--cuddled-elses"></a><a name="14.2"></a>
-  - [14.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace. 
+<a name="blocks--cuddled-elses"></a><a name="14.2"></a>
+
+-   [14.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace.
 
     ```typescript
     // bad
     if (test) {
-      thing1();
-      thing2();
-    }
-    else {
-      thing3();
+        thing1();
+        thing2();
+    } else {
+        thing3();
     }
 
     // good
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     } else {
-      thing3();
+        thing3();
     }
     ```
 
@@ -1426,26 +1471,23 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Control Statements
 
-  <a name="control-statements"></a>
-  - [15.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should be placed at the beginning of the line.
+<a name="control-statements"></a>
+
+-   [15.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should be placed at the beginning of the line.
 
     ```typescript
     // bad
     if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
-      thing1();
+        thing1();
     }
 
     // bad
-    if ((foo === 123 || bar === "abc") &&
-        doesItLookGoodWhenItBecomesThatLong() &&
-        isThisReallyHappening()) {
+    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
         thing1();
     }
 
     // good
-    if ((foo === 123 || bar === "abc")
-        && doesItLookGoodWhenItBecomesThatLong()
-        && isThisReallyHappening()) {
+    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
         thing1();
     }
     ```
@@ -1454,8 +1496,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Comments
 
-  <a name="comments--multiline"></a><a name="16.1"></a>
-  - [16.1](#comments--multiline) Use `/** ... */` for multi-line comments.
+<a name="comments--multiline"></a><a name="16.1"></a>
+
+-   [16.1](#comments--multiline) Use `/** ... */` for multi-line comments.
 
     ```typescript
     // bad
@@ -1484,12 +1527,13 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
     ```
 
-  <a name="comments--singleline"></a><a name="16.2"></a>
-  - [16.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+<a name="comments--singleline"></a><a name="16.2"></a>
+
+-   [16.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
 
     ```typescript
     // bad
-    const active: boolean = true;  // is current tab
+    const active: boolean = true; // is current tab
 
     // good
     // is current tab
@@ -1497,34 +1541,35 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // bad
     const getType = (): string => {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type: string = this.type || 'no type';
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        const type: string = this.type || 'no type';
 
-      return type;
+        return type;
     };
 
     // good
     const getType = (): string => {
-      console.log('fetching type...');
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      const type: string = this.type || 'no type';
+        // set the default type to 'no type'
+        const type: string = this.type || 'no type';
 
-      return type;
+        return type;
     };
 
     // also good
     const getType = (): string => {
-      // set the default type to 'no type'
-      const type: string = this.type || 'no type';
+        // set the default type to 'no type'
+        const type: string = this.type || 'no type';
 
-      return type;
+        return type;
     };
     ```
 
-  <a name="comments--spaces"></a><a name="16.3"></a>
-  - [16.3](#comments--spaces) Start all comments with a space to make it easier to read. 
+<a name="comments--spaces"></a><a name="16.3"></a>
+
+-   [16.3](#comments--spaces) Start all comments with a space to make it easier to read.
 
     ```typescript
     // bad
@@ -1560,19 +1605,20 @@ Since this part appeared to have a more educational purpose, you can refer to th
     };
     ```
 
-  <a name="comments--actionitems"></a><a name="16.4"></a>
-  - [16.4](#comments--actionitems) Prefixing your comments with `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be solved. Whenever possible, these comments should be supplemented with more context, like a linked story that can be specified by, for example, a JIRA issue number.
+<a name="comments--actionitems"></a><a name="16.4"></a>
+
+-   [16.4](#comments--actionitems) Prefixing your comments with `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be solved. Whenever possible, these comments should be supplemented with more context, like a linked story that can be specified by, for example, a JIRA issue number.
 
     ```typescript
     class Calculator extends Abacus {
-      private total: number;
+        private total: number;
 
-      constructor() {
-        super();
+        constructor() {
+            super();
 
-        // TODO: total should be configurable by an options param - JIRA issue: UI-4312
-        this.total = 0;
-      }
+            // TODO: total should be configurable by an options param - JIRA issue: UI-4312
+            this.total = 0;
+        }
     }
     ```
 
@@ -1580,8 +1626,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Whitespace
 
-  <a name="whitespace--around-keywords"></a><a name="17.1"></a>
-  - [17.1](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. 
+<a name="whitespace--around-keywords"></a><a name="17.1"></a>
+
+-   [17.1](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations.
 
     ```typescript
     // bad
@@ -1605,19 +1652,21 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
     ```
 
-  <a name="whitespace--infix-ops"></a><a name="17.2"></a>
-  - [17.2](#whitespace--infix-ops) Set off operators with spaces. 
+<a name="whitespace--infix-ops"></a><a name="17.2"></a>
+
+-   [17.2](#whitespace--infix-ops) Set off operators with spaces.
 
     ```typescript
     // bad
-    const x: number=y+5;
+    const x: number = y + 5;
 
     // good
     const x: number = y + 5;
     ```
 
-  <a name="whitespace--newline-at-end"></a><a name="17.3"></a>
-  - [17.3](#whitespace--newline-at-end) End files with a single newline character. 
+<a name="whitespace--newline-at-end"></a><a name="17.3"></a>
+
+-   [17.3](#whitespace--newline-at-end) End files with a single newline character.
 
     ```typescript
     // bad
@@ -1641,65 +1690,73 @@ Since this part appeared to have a more educational purpose, you can refer to th
     export es6;↵
     ```
 
-  <a name="whitespace--chains"></a><a name="17.4"></a>
-  - [17.4](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. 
+<a name="whitespace--chains"></a><a name="17.4"></a>
+
+-   [17.4](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
+    emphasizes that the line is a method call, not a new statement.
 
     ```typescript
     // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    $('#items')
+        .find('.selected')
+        .highlight()
+        .end()
+        .find('.open')
+        .updateCount();
 
     // bad
-    $('#items').
-      find('.selected').
-      focus().
-      click();
+    $('#items')
+        .find('.selected')
+        .focus()
+        .click();
 
     // good
     $('#items')
-      .find('.selected')
-      .focus()
-      .click();
+        .find('.selected')
+        .focus()
+        .click();
 
     // good
     const leds: string = stage.selectAll('.led').data(data);
     ```
 
-  <a name="whitespace--after-blocks"></a><a name="17.5"></a>
-  - [17.5](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. 
+<a name="whitespace--after-blocks"></a><a name="17.5"></a>
+
+-   [17.5](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement.
 
     ```typescript
     // bad
     if (foo) {
-      return bar;
+        return bar;
     }
     return baz;
 
     // good
     if (foo) {
-      return bar;
+        return bar;
     }
 
     return baz;
 
     // bad
     const obj: Interface = {
-      foo: () => {},
-      bar: () => {},
+        foo: () => {},
+        bar: () => {},
     };
     return obj;
 
     // good
     const obj: Interface = {
-      foo: () => {},
-      bar: () => {},
+        foo: () => {},
+        bar: () => {},
     };
 
     return obj;
     ```
 
-  <a name="whitespace--padded-blocks"></a><a name="17.6"></a>
-  - [17.6](#whitespace--padded-blocks) Do not pad your blocks with blank lines. 
+<a name="whitespace--padded-blocks"></a><a name="17.6"></a>
+
+-   [17.6](#whitespace--padded-blocks) Do not pad your blocks with blank lines.
 
     ```typescript
     // bad
@@ -1731,8 +1788,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
     ```
 
-  <a name="whitespace--in-parens"></a><a name="17.7"></a>
-  - [17.7](#whitespace--in-parens) Do not add spaces inside parentheses. 
+<a name="whitespace--in-parens"></a><a name="17.7"></a>
+
+-   [17.7](#whitespace--in-parens) Do not add spaces inside parentheses.
 
     ```typescript
     // bad
@@ -1756,59 +1814,70 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
     ```
 
-  <a name="whitespace--in-brackets"></a><a name="17.8"></a>
-  - [17.8](#whitespace--in-brackets) Do not add spaces inside brackets. 
+<a name="whitespace--in-brackets"></a><a name="17.8"></a>
+
+-   [17.8](#whitespace--in-brackets) Do not add spaces inside brackets.
 
     ```typescript
     // bad
-    const foo: number[] = [ 1, 2, 3 ];
-    console.log(foo[ 0 ]);
+    const foo: number[] = [1, 2, 3];
+    console.log(foo[0]);
 
     // good
     const foo: number[] = [1, 2, 3];
     console.log(foo[0]);
     ```
 
-  <a name="whitespace--in-braces"></a><a name="17.9"></a>
-  - [17.9](#whitespace--in-braces) Add spaces inside curly braces. 
+<a name="whitespace--in-braces"></a><a name="17.9"></a>
+
+-   [17.9](#whitespace--in-braces) Add spaces inside curly braces.
 
     ```typescript
     // bad
-    const foo: Interface = { clark: 'kent' };
+    const foo: Interface = {clark: 'kent'};
 
     // good
     const foo: Interface = {clark: 'kent'};
-
     ```
 
-  <a name="whitespace--max-len"></a><a name="17.10"></a>
-  - [17.10](#whitespace--max-len) Avoid having lines of code that are longer than 140 characters (including whitespace). If a line is to be broken, it should be broken at a meaningful position. If it barely exceeds 140 characters, you can leave it as is. Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. 
+<a name="whitespace--max-len"></a><a name="17.10"></a>
+
+-   [17.10](#whitespace--max-len) Avoid having lines of code that are longer than 140 characters (including whitespace). If a line is to be broken, it should be broken at a meaningful position. If it barely exceeds 140 characters, you can leave it as is. Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up.
 
     > Why? This ensures readability and maintainability.
 
     ```typescript
     // bad
-    const foo: Interface = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
+    const foo: Interface =
+        jsonData &&
+        jsonData.foo &&
+        jsonData.foo.bar &&
+        jsonData.foo.bar.baz &&
+        jsonData.foo.bar.baz.quux &&
+        jsonData.foo.bar.baz.quux.xyzzy;
 
     // good
-    const foo: Interface = jsonData
-      && jsonData.foo
-      && jsonData.foo.bar
-      && jsonData.foo.bar.baz
-      && jsonData.foo.bar.baz.quux
-      && jsonData.foo.bar.baz.quux.xyzzy;
+    const foo: Interface =
+        jsonData &&
+        jsonData.foo &&
+        jsonData.foo.bar &&
+        jsonData.foo.bar.baz &&
+        jsonData.foo.bar.baz.quux &&
+        jsonData.foo.bar.baz.quux.xyzzy;
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    $.ajax({method: 'POST', url: 'https://airbnb.com/', data: {name: 'John'}})
+        .done(() => console.log('Congratulations!'))
+        .fail(() => console.log('You have failed this city.'));
 
     // good
     $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
+        method: 'POST',
+        url: 'https://airbnb.com/',
+        data: {name: 'John'},
     })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
+        .done(() => console.log('Congratulations!'))
+        .fail(() => console.log('You have failed this city.'));
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1816,42 +1885,36 @@ Since this part appeared to have a more educational purpose, you can refer to th
 ## Commas
 
 <a name="commas--leading-trailing"></a><a name="18.1"></a>
-  - [18.1](#commas--leading-trailing) Do not use leading commas, **use trailing commas**. 
+
+-   [18.1](#commas--leading-trailing) Do not use leading commas, **use trailing commas**.
 
     ```typescript
     // bad
-    const story: Word[] = [
-        once
-      , upon
-      , aTime
-    ];
+    const story: Word[] = [once, upon, aTime];
 
     // good
-    const story: Word[] = [
-      once,
-      upon,
-      aTime,
-    ];
+    const story: Word[] = [once, upon, aTime];
 
     // bad
     const hero: Hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers',
     };
 
     // good
     const hero: Hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers',
     };
     ```
 
-  <a name="commas--dangling"></a><a name="18.2"></a>
-  - [18.2](#commas--dangling) Use the additional trailing comma. 
+<a name="commas--dangling"></a><a name="18.2"></a>
+
+-   [18.2](#commas--dangling) Use the additional trailing comma.
 
     > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
 
@@ -1940,31 +2003,35 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Semicolons
 
-  <a name="semicolons--required"></a><a name="19.1"></a>
-  - [19.1](#semicolons--required) **Use semicolons to end your code statements.** 
+<a name="semicolons--required"></a><a name="19.1"></a>
 
-    ```typescript
-    // bad
-    ((): string {
-      const name: string = 'Skywalker'
-      return name
-    })()
+-   [19.1](#semicolons--required) **Use semicolons to end your code statements.**
 
-    // good
-    ((): string {
-      const name: string = 'Skywalker';
-      return name;
-    }());
-    ```
-**[⬆ back to top](#table-of-contents)**
+        ```typescript
+        // bad
+        ((): string {
+          const name: string = 'Skywalker'
+          return name
+        })()
+
+        // good
+        ((): string {
+          const name: string = 'Skywalker';
+          return name;
+        }());
+        ```
+
+    **[⬆ back to top](#table-of-contents)**
 
 ## Type Casting & Coercion
 
-  <a name="coercion--explicit"></a><a name="20.1"></a>
-  - [20.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+<a name="coercion--explicit"></a><a name="20.1"></a>
 
-  <a name="coercion--strings"></a><a name="20.2"></a>
-  - [20.2](#coercion--strings)  Strings:
+-   [20.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+
+<a name="coercion--strings"></a><a name="20.2"></a>
+
+-   [20.2](#coercion--strings) Strings:
 
     ```typescript
     // => this.reviewScore = 9;
@@ -1979,8 +2046,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const totalScore: string = String(this.reviewScore);
     ```
 
-  <a name="coercion--numbers"></a><a name="20.3"></a>
-  - [20.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. 
+<a name="coercion--numbers"></a><a name="20.3"></a>
+
+-   [20.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings.
 
     ```typescript
     const inputValue: string = '4';
@@ -2004,8 +2072,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const val: number = parseInt(inputValue, 10);
     ```
 
-  <a name="coercion--comment-deviations"></a><a name="20.4"></a>
-  - [20.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+<a name="coercion--comment-deviations"></a><a name="20.4"></a>
+
+-   [20.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
     ```typescript
     // good
@@ -2017,8 +2086,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const val: number = inputValue >> 0;
     ```
 
-  <a name="coercion--bitwise"></a><a name="20.5"></a>
-  - [20.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+<a name="coercion--bitwise"></a><a name="20.5"></a>
+
+-   [20.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
     ```typescript
     2147483647 >> 0; // => 2147483647
@@ -2026,8 +2096,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
     2147483649 >> 0; // => -2147483647
     ```
 
-  <a name="coercion--booleans"></a><a name="20.6"></a>
-  - [20.6](#coercion--booleans) Booleans:
+<a name="coercion--booleans"></a><a name="20.6"></a>
+
+-   [20.6](#coercion--booleans) Booleans:
 
     ```typescript
     const age: number = 0;
@@ -2044,23 +2115,25 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Naming Conventions
 
-  <a name="naming--descriptive"></a><a name="21.1"></a>
-  - [21.1](#naming--descriptive) Be descriptive with your naming. 
+<a name="naming--descriptive"></a><a name="21.1"></a>
+
+-   [21.1](#naming--descriptive) Be descriptive with your naming.
 
     ```typescript
     // bad
     const q = () => {
-      // ...
+        // ...
     };
 
     // good
     const query = () => {
-      // ...
+        // ...
     };
     ```
 
-  <a name="naming--camelCase"></a><a name="21.2"></a>
-  - [21.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. 
+<a name="naming--camelCase"></a><a name="21.2"></a>
+
+-   [21.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances.
 
     ```typescript
     // bad
@@ -2073,68 +2146,74 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const thisIsMyFunction = () => {};
     ```
 
-  <a name="naming--PascalCase"></a><a name="21.3"></a>
-  - [21.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. 
+<a name="naming--PascalCase"></a><a name="21.3"></a>
+
+-   [21.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes.
 
     ```typescript
     // bad
     class user {
-      private name: string;
+        private name: string;
 
-      constructor(options: Options) {
-        this.name = options.name;
-      }
+        constructor(options: Options) {
+            this.name = options.name;
+        }
     }
 
     const bad: user = new user({
-      name: 'nope',
+        name: 'nope',
     });
 
     // good
     class User {
-      private name: string;
+        private name: string;
 
-      constructor(options: Options) {
-        this.name = options.name;
-      }
+        constructor(options: Options) {
+            this.name = options.name;
+        }
     }
 
     const good: User = new User({
-      name: 'yup',
+        name: 'yup',
     });
     ```
 
-  <a name="naming--leading-underscore"></a><a name="21.4"></a>
-  - [21.4](#naming--leading-underscore) Do not use trailing or leading underscores. 
+<a name="naming--leading-underscore"></a><a name="21.4"></a>
+
+-   [21.4](#naming--leading-underscore) Do not use trailing or leading underscores.
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Accessors
 
-  <a name="accessors--not-required"></a><a name="22.1"></a>
-  - [22.1](#accessors--not-required) Accessor functions for properties are not required.
+<a name="accessors--not-required"></a><a name="22.1"></a>
 
-  <a name="accessors--no-getters-setters"></a><a name="22.2"></a>
-  - [22.2](#accessors--no-getters-setters) Do use TypeScript getters/setters.
+-   [22.1](#accessors--not-required) Accessor functions for properties are not required.
 
-    ```typescript
-    // good
-    class Dragon {
-      get age(): number {
-        // ...
-      }
+<a name="accessors--no-getters-setters"></a><a name="22.2"></a>
 
-      set age(value: number): number {
-        // ...
-      }
-    }
-    ```
-**[⬆ back to top](#table-of-contents)**
+-   [22.2](#accessors--no-getters-setters) Do use TypeScript getters/setters.
+
+        ```typescript
+        // good
+        class Dragon {
+          get age(): number {
+            // ...
+          }
+
+          set age(value: number): number {
+            // ...
+          }
+        }
+        ```
+
+    **[⬆ back to top](#table-of-contents)**
 
 ## Events
 
-  <a name="events--hash"></a><a name="23.1"></a>
-  - [23.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+<a name="events--hash"></a><a name="23.1"></a>
+
+-   [23.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
     ```typescript
     // bad
@@ -2143,7 +2222,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // ...
 
     $(this).on('listingUpdated', (e: JQueryEvent, listingId: string) => {
-      // do something with listingId
+        // do something with listingId
     });
     ```
 
@@ -2151,20 +2230,22 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // good
-    $(this).trigger('listingUpdated', { listingId: listing.id });
+    $(this).trigger('listingUpdated', {listingId: listing.id});
 
     // ...
 
-    $(this).on('listingUpdated', (e: JQueryEvent, data: { listingId: string; }) => {
-      // do something with data.listingId
+    $(this).on('listingUpdated', (e: JQueryEvent, data: {listingId: string}) => {
+        // do something with data.listingId
     });
     ```
-  **[⬆ back to top](#table-of-contents)**
+
+    **[⬆ back to top](#table-of-contents)**
 
 ## jQuery
 
-  <a name="jquery--dollar-prefix"></a><a name="24.1"></a>
-  - [24.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$` if they are outside `ui` elements bind to a Marionette View. 
+<a name="jquery--dollar-prefix"></a><a name="24.1"></a>
+
+-   [24.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$` if they are outside `ui` elements bind to a Marionette View.
 
     ```typescript
     // bad
@@ -2177,63 +2258,69 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const $sidebarBtn: JQueryElement = $('.sidebar-btn');
     ```
 
-  <a name="jquery--cache"></a><a name="24.2"></a>
-  - [24.2](#jquery--cache) Cache jQuery lookups whenever possible.
+<a name="jquery--cache"></a><a name="24.2"></a>
+
+-   [24.2](#jquery--cache) Cache jQuery lookups whenever possible.
 
     ```typescript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+        $('.sidebar').hide();
 
-      // ...
+        // ...
 
-      $('.sidebar').css({
-        'background-color': 'pink',
-      });
+        $('.sidebar').css({
+            'background-color': 'pink',
+        });
     }
 
     // good
     function setSidebar() {
-      const $sidebar: JQueryElement = $('.sidebar');
-      $sidebar.hide();
+        const $sidebar: JQueryElement = $('.sidebar');
+        $sidebar.hide();
 
-      // ...
+        // ...
 
-      $sidebar.css({
-        'background-color': 'pink',
-      });
+        $sidebar.css({
+            'background-color': 'pink',
+        });
     }
     ```
 
-  <a name="jquery--queries"></a><a name="24.3"></a>
-  - [24.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+<a name="jquery--queries"></a><a name="24.3"></a>
 
-  <a name="jquery--find"></a><a name="24.4"></a>
-  - [24.4](#jquery--find) Use `find` with scoped jQuery object queries.
+-   [24.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
-    ```typescript
-    // bad
-    $('ul', '.sidebar').hide();
+<a name="jquery--find"></a><a name="24.4"></a>
 
-    // bad
-    $('.sidebar').find('ul').hide();
+-   [24.4](#jquery--find) Use `find` with scoped jQuery object queries.
 
-    // good
-    $('.sidebar ul').hide();
+        ```typescript
+        // bad
+        $('ul', '.sidebar').hide();
 
-    // good
-    $('.sidebar > ul').hide();
+        // bad
+        $('.sidebar').find('ul').hide();
 
-    // good
-    $sidebar.find('ul').hide();
-    ```
-**[⬆ back to top](#table-of-contents)**
+        // good
+        $('.sidebar ul').hide();
+
+        // good
+        $('.sidebar > ul').hide();
+
+        // good
+        $sidebar.find('ul').hide();
+        ```
+
+    **[⬆ back to top](#table-of-contents)**
 
 <a name="ecmascript-6-styles"></a>
+
 ## ECMAScript 6+ (ES 2015+) Styles
 
-  <a name="tc39-proposals"></a>
-  - [25.1](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+<a name="tc39-proposals"></a>
+
+-   [25.1](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
@@ -2241,134 +2328,156 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ## Testing
 
-  <a name="test-jasmine"></a>
-  - [26.1](#test-jasmine) We use [Jasmine](https://jasmine.github.io/) at Coveo, and combine it with [Enzyme](http://airbnb.io/enzyme/) when testing React components. 
+<a name="test-jasmine"></a>
 
-  <a name="test-everything"></a>
-  - [26.2](#test-everything) You should be writing tests for all new code you write. 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
+-   [26.1](#test-jasmine) We use [Jasmine](https://jasmine.github.io/) at Coveo, and combine it with [Enzyme](http://airbnb.io/enzyme/) when testing React components.
+
+<a name="test-everything"></a>
+
+-   [26.2](#test-everything) You should be writing tests for all new code you write. 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
 
     > Why? Testing aggressively gives you solid proofs that your system/application will work the way you want. Plus, if new code breaks your application, it will be much easier to find out why it happened if the code base is well tested.
 
+<a name="regression-test"></a>
 
-  <a name="regression-test"></a>
-  - [26.3](#regression-test) Whenever you fix a bug, _write a regression test_. In other words, add additional unit tests proving that the bug is really fixed and unlikely to break again in the future.
-  
+-   [26.3](#regression-test) Whenever you fix a bug, _write a regression test_. In other words, add additional unit tests proving that the bug is really fixed and unlikely to break again in the future.
+
     > Why? A bug fixed without a regression test is almost certainly going to break again in the future.
 
-  <a name="test-mocks"></a>
-  - [26.4](#test-mocks) Use mocks to mock objects, and create them in their own files.
-    > Why? Having your mocks outside your test files makes your tests more readable. 
-  
-  <a name="test-spies"></a>
-  - [26.5](#test-spies) Name your spies with the name of the entity you want to spy on (be it a method or property) following with the _Spy_ suffix. For example, if you want to spy on a method called `renderChildren`, you should name your spy `renderChildrenSpy`.
+<a name="test-mocks"></a>
+
+-   [26.4](#test-mocks) Use mocks to mock objects, and create them in their own files.
+    > Why? Having your mocks outside your test files makes your tests more readable.
+
+<a name="test-spies"></a>
+
+-   [26.5](#test-spies) Name your spies with the name of the entity you want to spy on (be it a method or property) following with the _Spy_ suffix. For example, if you want to spy on a method called `renderChildren`, you should name your spy `renderChildrenSpy`.
     > Why? Naming your spies makes your tests easier to understand and shorter to write overall. Adding the Spy suffix makes the person who reads your code aware that it is a "spied upon" entity.
 
-  <a name="test-matchers"></a>
-  - [26.6](#test-matchers) Prefer built-in jasmine matchers (`toBeDefined`, `toEqual`, `toBe`, `toContain`, etc) before custom matchers, except for `toBeTruthy` and `toBeFalsy`. 
-    > Why? Jasmine's matchers are robust and give clear information in the logs if your test breaks, which make things easier to debug. 
+<a name="test-matchers"></a>
 
-  <a name="test-variables-description"></a>
-  - [26.7](#test-matchers) Do not use variables in your tests description. 
-    > Why? If the test fails, and in most other circumstances, it will make it unsearchable. 
+-   [26.6](#test-matchers) Prefer built-in jasmine matchers (`toBeDefined`, `toEqual`, `toBe`, `toContain`, etc) before custom matchers, except for `toBeTruthy` and `toBeFalsy`.
+    > Why? Jasmine's matchers are robust and give clear information in the logs if your test breaks, which make things easier to debug.
 
-  <a name="test-break-description"></a>
-  - [26.8](#test-matchers) Do not break your test descriptions on two lines, always put them on one line even if it's long. 
+<a name="test-variables-description"></a>
+
+-   [26.7](#test-matchers) Do not use variables in your tests description.
+    > Why? If the test fails, and in most other circumstances, it will make it unsearchable.
+
+<a name="test-break-description"></a>
+
+-   [26.8](#test-matchers) Do not break your test descriptions on two lines, always put them on one line even if it's long.
     > Why? If the test fails, and in most other circumstances, it will make the test unsearchable.
 
 **[⬆ back to top](#table-of-contents)**
 
-## Reviewing  
+## Reviewing
 
-  <a name="review-daily"></a>
-  - [27.1](#review-daily) Review code of your peers **daily** as long as there are pull requests to review. No, this won't affect your productivity negatively, it will speed it up. 
-    > Why? Receiving or giving code reviews at least daily speeds up the feedback rate for each team member and consequently speeds up the rate at which your team merges its pull requests without losing in quality. Reviewing and merging pull requests at a standard and predictible pace gives momentum to the team. Adopting this habit can also free your brain from thinking about tasks that have remained pending in a "review" state for multiple days without having received any feedback. 
+<a name="review-daily"></a>
 
-  <a name="review-fully"></a>
-  - [27.2](#review-fully) Consider a complete code review as having read (and hopefully understood) each line of code contained in the pull request being reviewed, including its unit tests. If there is a demo (in the form of a live demo, video or image), make sure you thoroughly tested it or seen it. If the pull request to review is long and you think it will take more than an hour to do, be disciplined, and do it anyway.
+-   [27.1](#review-daily) Review code of your peers **daily** as long as there are pull requests to review. No, this won't affect your productivity negatively, it will speed it up.
+    > Why? Receiving or giving code reviews at least daily speeds up the feedback rate for each team member and consequently speeds up the rate at which your team merges its pull requests without losing in quality. Reviewing and merging pull requests at a standard and predictible pace gives momentum to the team. Adopting this habit can also free your brain from thinking about tasks that have remained pending in a "review" state for multiple days without having received any feedback.
+
+<a name="review-fully"></a>
+
+-   [27.2](#review-fully) Consider a complete code review as having read (and hopefully understood) each line of code contained in the pull request being reviewed, including its unit tests. If there is a demo (in the form of a live demo, video or image), make sure you thoroughly tested it or seen it. If the pull request to review is long and you think it will take more than an hour to do, be disciplined, and do it anyway.
     > Why? Half a review is no review. Be thorough and genuinely critical in your review, but always remain respectful.
 
-  <a name="review-pragmatically"></a>
-  - [27.3](#review-pragmatically) Avoid looking for small or unimportant issues. As a rule of thumb, seek "good enough" code, and not perfection (it's subjective anyway). If the code fits the standards described in this document, don't go overboard to prove a point. You can offer suggestions, but don't insist on them being implemented to approve features of your peers. 
-    > Why? Nit picking and perfectionism kills development speed. 
+<a name="review-pragmatically"></a>
 
-## Being Reviewed 
+-   [27.3](#review-pragmatically) Avoid looking for small or unimportant issues. As a rule of thumb, seek "good enough" code, and not perfection (it's subjective anyway). If the code fits the standards described in this document, don't go overboard to prove a point. You can offer suggestions, but don't insist on them being implemented to approve features of your peers.
+    > Why? Nit picking and perfectionism kills development speed.
 
-  <a name="reviewed-be-steady"></a>
-  - [28.1](#reviewed-be-steady) Avoid letting your pull requests pending "in review" for too long. As a rule of thumb, focus on applying reviews and closing your on going pull requests before starting other features. 
+## Being Reviewed
+
+<a name="reviewed-be-steady"></a>
+
+-   [28.1](#reviewed-be-steady) Avoid letting your pull requests pending "in review" for too long. As a rule of thumb, focus on applying reviews and closing your on going pull requests before starting other features.
     > Why? It keeps discussions around pull requests more lively and on point. It's easy to lose some context about a pull request when you did not touch it for a couple of days.
 
-  <a name="reviewed-explain-things"></a>
-  - [28.2](#reviewed-unconscious-lazyness) Provide written explanations on what complex parts of your code do. Provide written explanations on changes you've made after receiving reviews. And, all explanations should preferably appear in the pull request itself.
+<a name="reviewed-explain-things"></a>
+
+-   [28.2](#reviewed-unconscious-lazyness) Provide written explanations on what complex parts of your code do. Provide written explanations on changes you've made after receiving reviews. And, all explanations should preferably appear in the pull request itself.
 
     > Why? Explanations help everybody understand better your pull request and its advancements. Having them all in the pull request allow everyone to see the explanations (as opposed to direct messages between two team members on Slack).
 
-  <a name="reviewed-unconscious-lazyness"></a>
-  - [28.3](#reviewed-unconscious-lazyness) Combat lazyness. It might sound obvious when you are fresh into a new feature. However, after a couple of days (or weeks) into one, things can get psychologically more complex. Always stay self-aware of whether you are arguing against doing something because you are tired of a feature, or really because it is not worthwile to do at this point.    
+<a name="reviewed-unconscious-lazyness"></a>
+
+-   [28.3](#reviewed-unconscious-lazyness) Combat lazyness. It might sound obvious when you are fresh into a new feature. However, after a couple of days (or weeks) into one, things can get psychologically more complex. Always stay self-aware of whether you are arguing against doing something because you are tired of a feature, or really because it is not worthwile to do at this point.
     > Why? Regardless of the state you're in, quality should always be the first priority.
 
-  <a name="reviewed-pragmatically"></a>
-  - [28.4](#reviewed-pragmatically) Avoid debating over small or unimportant issues. If, in your view, you received nit picking comments on your pull request and someone insists on you making changes, apply them quickly and move on.     
+<a name="reviewed-pragmatically"></a>
 
-    > Why? Sometimes things are just subjective and arguing thus becomes a time-consuming dead end. The sooner the reviewer or the reviewee recognizes the situation, the better. 
+-   [28.4](#reviewed-pragmatically) Avoid debating over small or unimportant issues. If, in your view, you received nit picking comments on your pull request and someone insists on you making changes, apply them quickly and move on.
 
-## TypeScript 
+    > Why? Sometimes things are just subjective and arguing thus becomes a time-consuming dead end. The sooner the reviewer or the reviewee recognizes the situation, the better.
+
+## TypeScript
+
 #### Interface
 
-  <a name="interface-naming"></a>
-  - [29.1](#interface-naming) Use `PascalCase` when naming your interfaces, and `camelCase` for their members.
+<a name="interface-naming"></a>
 
-  <a name="interface-no-i"></a>
-  - [29.2](#interface-no-i) Do not prefix your interfaces with `I`.  
+-   [29.1](#interface-naming) Use `PascalCase` when naming your interfaces, and `camelCase` for their members.
+
+<a name="interface-no-i"></a>
+
+-   [29.2](#interface-no-i) Do not prefix your interfaces with `I`.
     > Why? Unconventional. Important interfaces (like `Window`, `Document`) are usually not defined with the `I` prefix.
 
 #### Type
 
-  <a name="type-naming"></a>
-  - [29.3](#types-naming) Use `PascalCase` when naming your types, and `camelCase` for their members.
+<a name="type-naming"></a>
+
+-   [29.3](#types-naming) Use `PascalCase` when naming your types, and `camelCase` for their members.
 
 #### Enum
 
-  <a name="enum-naming"></a>
-  - [29.4](#enum-naming) Use `PascalCase` when naming your enums, and `camelCase` for their members.
+<a name="enum-naming"></a>
 
-#### Function 
-  <a name="function-return"></a>
-  - [29.5](#function-return) Avoid specifying the returned type if the function can return anything (`any`) or nothing.
+-   [29.4](#enum-naming) Use `PascalCase` when naming your enums, and `camelCase` for their members.
+
+#### Function
+
+<a name="function-return"></a>
+
+-   [29.5](#function-return) Avoid specifying the returned type if the function can return anything (`any`) or nothing.
 
 ### Namespace
-  <a name="namespace-avoid"></a>
-  - [29.7](#namespace-avoid) Do not use namespaces. Use [modules](https://www.typescriptlang.org/docs/handbook/modules.html).  
 
-## Libraries and Frameworks 
+<a name="namespace-avoid"></a>
 
-The following list is an overview of the main frameworks and libraries we use when developping for the Coveo Cloud Platform. You can dig deeper by clicking on the links of each library or framework listed:  
-  
-- [Backbone.js](http://backbonejs.org/)
-- [Marionette.js](https://marionettejs.com/)
-- [EJS](http://www.embeddedjs.com/)
-- [React](https://facebook.github.io/react/) 
-- [Redux](http://redux.js.org/docs/introduction/)
-- [Underscore.js](http://underscorejs.org/)
-- [jQuery](https://jquery.com/)
-- [Moment.js](https://momentjs.com/)
-- [URI.js](https://medialize.github.io/URI.js/)
-- [Polyglot.js](http://airbnb.io/polyglot.js/)  
-- [Webpack](https://webpack.js.org/)  
-- [Gulp](https://gulpjs.com/)  
-- [npm](https://docs.npmjs.com/)  
+-   [29.7](#namespace-avoid) Do not use namespaces. Use [modules](https://www.typescriptlang.org/docs/handbook/modules.html).
+
+## Libraries and Frameworks
+
+The following list is an overview of the main frameworks and libraries we use when developping for the Coveo Cloud Platform. You can dig deeper by clicking on the links of each library or framework listed:
+
+-   [Backbone.js](http://backbonejs.org/)
+-   [Marionette.js](https://marionettejs.com/)
+-   [EJS](http://www.embeddedjs.com/)
+-   [React](https://facebook.github.io/react/)
+-   [Redux](http://redux.js.org/docs/introduction/)
+-   [Underscore.js](http://underscorejs.org/)
+-   [jQuery](https://jquery.com/)
+-   [Moment.js](https://momentjs.com/)
+-   [URI.js](https://medialize.github.io/URI.js/)
+-   [Polyglot.js](http://airbnb.io/polyglot.js/)
+-   [Webpack](https://webpack.js.org/)
+-   [Gulp](https://gulpjs.com/)
+-   [npm](https://docs.npmjs.com/)
 
 **A few rules of thumb:**
-  
-- Use "native" features of Backbone/Marionette and React/Redux whenever you can. Only defaults to using jQuery if and only if your problem cannot be solved with the main frameworks and architecture we use.  
-- Always use EJS for HTML templating if you are working with Backbone/Marionette.  
-- Use Underscore.js as much as it pleases you. 
-- If you are working on new components or complex features, favor React/Redux over Backbone/Marionette as your framework of choice.
 
-## Notes on Legacy Code 
+-   Use "native" features of Backbone/Marionette and React/Redux whenever you can. Only defaults to using jQuery if and only if your problem cannot be solved with the main frameworks and architecture we use.
+-   Always use EJS for HTML templating if you are working with Backbone/Marionette.
+-   Use Underscore.js as much as it pleases you.
+-   If you are working on new components or complex features, favor React/Redux over Backbone/Marionette as your framework of choice.
+
+## Notes on Legacy Code
 
 As for any project that has lived for a long period of time, you may find some places in the code base where the code does not respect some standards described above. In this case, do refactor the code if it is related to your current task, or if you think it could represent a potential security or bug threat. Otherwise, you can leave the code as it is.
-  
 
 ## Remaining Sections
-You can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for the remaining sections if you want, although they are really not a required read by our team.  
-  
+
+You can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for the remaining sections if you want, although they are really not a required read by our team.
