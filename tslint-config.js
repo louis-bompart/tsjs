@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    extends: ['tslint-react-hooks', 'tslint-config-prettier'],
+    extends: ['tslint-react-hooks', 'tslint-config-prettier', 'tslint-jasmine-rules'],
     rules: {
         prettier: true,
         'array-type': [true, 'array-simple'],
@@ -65,6 +65,7 @@ module.exports = {
         'unified-signatures': true,
         'use-isnan': true,
         'variable-name': [true, 'ban-keywords', 'check-format', 'allow-leading-underscore', 'allow-pascal-case'],
+        'no-focused-tests': true,
     },
     jsRules: {
         'arrow-return-shorthand': true,
