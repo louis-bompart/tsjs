@@ -29,7 +29,7 @@ module.exports = {
         'no-conditional-assignment': true,
         'no-console': [true, 'debug', 'info', 'log', 'time', 'timeEnd', 'trace'],
         'no-construct': true,
-        'no-debugger': false,
+        'no-debugger': true,
         'no-default-export': true,
         'no-duplicate-switch-case': true,
         'no-duplicate-super': true,
