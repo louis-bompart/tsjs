@@ -32,7 +32,7 @@
         "husky": "2.4.1",
         "lint-staged": "8.2.1",
         "prettier": "1.18.2",
-        "stylelint": "10.1.0"
+        "stylelint": "11.0.0"
     },
     "prettier": "./prettier-config",
     "husky": {
