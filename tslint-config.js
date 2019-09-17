@@ -40,6 +40,7 @@ module.exports = {
         'no-misused-new': true,
         'no-parameter-properties': false,
         'no-reference': true,
+        'no-require-imports': true,
         'no-shadowed-variable': true,
         'no-string-literal': false,
         'no-switch-case-fall-through': false,
