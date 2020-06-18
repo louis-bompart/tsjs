@@ -22,7 +22,7 @@
         "tslint-react-hooks": "2.2.1",
         "typescript": "3.7.2",
         "typescript-formatter": "7.2.2",
-        "yargs": "13.1.0"
+        "yargs": "13.3.2"
     },
     "peerDependencies": {
         "prettier": "^1.17.1",
