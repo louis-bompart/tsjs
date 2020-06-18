@@ -13,7 +13,7 @@
     "dependencies": {
         "stylelint-config-prettier": "5.2.0",
         "stylelint-config-rational-order": "0.1.2",
-        "stylelint-order": "3.0.0",
+        "stylelint-order": "3.1.1",
         "stylelint-prettier": "1.1.1",
         "tslint": "5.20.1",
         "tslint-config-prettier": "1.18.0",
