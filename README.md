@@ -150,7 +150,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     const atom: Interface = {
         value: 1,
-        addValue: function(value: number): number {
+        addValue: function (value: number): number {
             return atom.value + value;
         },
     };
@@ -328,7 +328,11 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 ```typescript
 // bad
-const arr: number[][] = [[0, 1], [2, 3], [4, 5]];
+const arr: number[][] = [
+    [0, 1],
+    [2, 3],
+    [4, 5],
+];
 
 const objectInArray: Interface[] = [
     {
@@ -342,7 +346,11 @@ const objectInArray: Interface[] = [
 const numberInArray: number[] = [1, 2];
 
 // good
-const arr: number[][] = [[0, 1], [2, 3], [4, 5]];
+const arr: number[][] = [
+    [0, 1],
+    [2, 3],
+    [4, 5],
+];
 
 const objectInArray: Interface[] = [
     {
@@ -520,7 +528,7 @@ const numberInArray: number[] = [1, 2];
 
     ```typescript
     // bad
-    const foo = function(bar: Interface): ReturnedInterface {
+    const foo = function (bar: Interface): ReturnedInterface {
         // ...
     };
 
@@ -675,7 +683,7 @@ const numberInArray: number[] = [1, 2];
 
     ```typescript
     // bad
-    [1, 2, 3].map(function(x: number): number {
+    [1, 2, 3].map(function (x: number): number {
         const y: number = x + 1;
         return x * y;
     });
@@ -785,7 +793,7 @@ const numberInArray: number[] = [1, 2];
     function Queue(contents: any[] = []) {
         this.queue = [...contents];
     }
-    Queue.prototype.pop = function() {
+    Queue.prototype.pop = function () {
         const value: any = this.queue[0];
         this.queue.splice(0, 1);
         return value;
@@ -833,12 +841,12 @@ const numberInArray: number[] = [1, 2];
 
     ```typescript
     // bad
-    Jedi.prototype.jump = function(): boolean {
+    Jedi.prototype.jump = function (): boolean {
         this.jumping = true;
         return true;
     };
 
-    Jedi.prototype.setHeight = function(height: number) {
+    Jedi.prototype.setHeight = function (height: number) {
         this.height = height;
     };
 
@@ -1697,24 +1705,13 @@ Since this part appears to be more educational than anything else, you can refer
 
     ```typescript
     // bad
-    $('#items')
-        .find('.selected')
-        .highlight()
-        .end()
-        .find('.open')
-        .updateCount();
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
     // bad
-    $('#items')
-        .find('.selected')
-        .focus()
-        .click();
+    $('#items').find('.selected').focus().click();
 
     // good
-    $('#items')
-        .find('.selected')
-        .focus()
-        .click();
+    $('#items').find('.selected').focus().click();
 
     // good
     const leds: string = stage.selectAll('.led').data(data);
