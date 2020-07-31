@@ -4,7 +4,7 @@
     "description": "A mostly reasonable approach to TypeScript and JavaScript.",
     "scripts": {
         "test": "node -e 'console.log(\"No script added yet, add one.\");'",
-        "lintfix": "prettier --write --config prettier-config.js \"*.{js,json,md}\""
+        "lintfix": "prettier --write --config prettier-config.js \"*.{js,json,md}\" && eslint --fix -c ./eslint-config.js"
     },
     "repository": {
         "type": "git",
@@ -12,18 +12,20 @@
     },
     "license": "MIT",
     "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^3.7.1",
+        "@typescript-eslint/eslint-plugin-tslint": "^3.7.1",
+        "@typescript-eslint/parser": "^3.7.1",
+        "eslint": "^7.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsdoc": "^30.0.3",
+        "eslint-plugin-prefer-arrow": "^1.2.2",
+        "eslint-plugin-react": "^7.20.5",
+        "eslint-plugin-react-hooks": "^4.0.8",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^4.1.0",
-        "stylelint-prettier": "^1.1.2",
-        "tslint": "^6.1.2",
-        "tslint-config-prettier": "^1.18.0",
-        "tslint-jasmine-rules": "^1.6.1",
-        "tslint-plugin-prettier": "^2.3.0",
-        "tslint-react-hooks": "^2.2.2",
-        "typescript": "^3.9.7",
-        "typescript-formatter": "^7.2.2",
-        "yargs": "^15.4.1"
+        "stylelint-prettier": "^1.1.2"
     },
     "peerDependencies": {
         "prettier": "^2.0.5",
@@ -33,9 +35,10 @@
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
-        "stylelint": "13.6.1"
+        "stylelint": "13.6.1",
+        "typescript": "^3.9.7"
     },
-    "prettier": "./prettier-config",
+    "prettier": "./prettier-config.js",
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
