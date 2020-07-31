@@ -1,10 +1,9 @@
 module.exports = {
     env: {
         browser: true,
-        es6: true,
     },
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', '@typescript-eslint/tslint', 'import', 'jsdoc', 'react'],
+    plugins: ['@typescript-eslint', 'import', 'jsdoc', 'react', 'prefer-arrow'],
     extends: [
         'plugin:react-hooks/recommended',
         'plugin:prettier/recommended',
@@ -65,7 +64,7 @@ module.exports = {
                 },
             },
         ],
-        '@typescript-eslint/naming-convention': 'warn',
+        '@typescript-eslint/naming-convention': ['warn', {selector: 'enumMember', format: null}],
         '@typescript-eslint/no-empty-function': 'error',
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-misused-new': 'error',
@@ -101,7 +100,15 @@ module.exports = {
             'undefined',
         ],
         'id-match': 'error',
-        'import/order': 'error',
+        'import/order': [
+            'error',
+            {
+                groups: [
+                    ['builtin', 'external', 'internal'],
+                    ['parent', 'sibling', 'index', 'object'],
+                ],
+            },
+        ],
         'jsdoc/check-alignment': 'error',
         'jsdoc/check-indentation': 'error',
         'jsdoc/newline-after-description': 'error',
