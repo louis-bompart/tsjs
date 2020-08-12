@@ -1,6 +1,6 @@
 {
     "name": "tsjs",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "A mostly reasonable approach to TypeScript and JavaScript.",
     "scripts": {
         "test": "node -e 'console.log(\"No script added yet, add one.\");'",
