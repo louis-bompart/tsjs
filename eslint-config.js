@@ -3,14 +3,11 @@ module.exports = {
         browser: true,
     },
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'import', 'jsdoc', 'react', 'prefer-arrow'],
-    extends: [
-        'plugin:react-hooks/recommended',
-        'plugin:prettier/recommended',
-        'prettier/@typescript-eslint',
-        'prettier/react',
-    ],
+    plugins: ['@typescript-eslint', 'import', 'jsdoc', 'react', 'prefer-arrow', 'react-hooks'],
+    extends: ['plugin:prettier/recommended', 'prettier/@typescript-eslint', 'prettier/react'],
     rules: {
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'off',
         '@typescript-eslint/array-type': [
             'error',
             {
