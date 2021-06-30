@@ -1,6 +1,6 @@
 {
     "name": "tsjs",
-    "version": "3.0.2",
+    "version": "4.0.0",
     "description": "A mostly reasonable approach to TypeScript and JavaScript.",
     "scripts": {
         "test": "node -e 'console.log(\"No script added yet, add one.\");'",
@@ -22,6 +22,7 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.20.5",
         "eslint-plugin-react-hooks": "^4.0.8",
+        "eslint-plugin-unused-imports": "^1.1.1",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^4.1.0",

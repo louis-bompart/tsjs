@@ -3,7 +3,7 @@ module.exports = {
         browser: true,
     },
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'import', 'jsdoc', 'react', 'prefer-arrow', 'react-hooks'],
+    plugins: ['@typescript-eslint', 'import', 'jsdoc', 'react', 'prefer-arrow', 'react-hooks', 'unused-imports'],
     extends: ['plugin:prettier/recommended', 'prettier/@typescript-eslint', 'prettier/react'],
     rules: {
         'react-hooks/rules-of-hooks': 'error',
@@ -185,5 +185,11 @@ module.exports = {
             },
         ],
         'use-isnan': 'error',
+        'no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            {vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_'},
+        ],
     },
 };
