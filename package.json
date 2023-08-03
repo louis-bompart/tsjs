@@ -1,6 +1,6 @@
 {
     "name": "tsjs",
-    "version": "4.2.1",
+    "version": "5.0.0",
     "description": "A mostly reasonable approach to TypeScript and JavaScript.",
     "scripts": {
         "test": "node -e 'console.log(\"No script added yet, add one.\");'",
@@ -19,7 +19,7 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jsdoc": "^39.3.3",
         "eslint-plugin-prefer-arrow": "^1.2.3",
-        "eslint-plugin-prettier": "^4.1.0",
+        "eslint-plugin-prettier": "^5.0.0",
         "eslint-plugin-react": "^7.30.1",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-unused-imports": "^2.0.0",
@@ -29,13 +29,13 @@
         "stylelint-prettier": "^1.1.2"
     },
     "peerDependencies": {
-        "prettier": "^2.0.5",
+        "prettier": "^3.0.1",
         "stylelint": "^13.6.1"
     },
     "devDependencies": {
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
-        "prettier": "^2.0.5",
+        "prettier": "^3.0.1",
         "stylelint": "13.6.1",
         "typescript": "^3.9.7"
     },
