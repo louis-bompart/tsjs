@@ -301,23 +301,25 @@ Since this part appeared to have a more educational purpose, you can refer to th
     });
     ```
 
-
-    /* Simple if/else cases */
+    /_ Simple if/else cases _/
 
     // bad
     inbox.filter((msg: string): boolean => {
-      if (msg.subject === 'Mockingbird') {
-        return msg.author === 'Harper Lee';
-      } else {
-        return false;
-      }
+    if (msg.subject === 'Mockingbird') {
+    return msg.author === 'Harper Lee';
+    } else {
+    return false;
+    }
     });
 
     // best
     inbox.filter((msg: string): boolean => msg.subject === 'Mockingbird'
-        ? msg.author === 'Harper Lee'
-        : false
+    ? msg.author === 'Harper Lee'
+    : false
     );
+
+    ```
+
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -733,12 +735,12 @@ const numberInArray: number[] = [1, 2];
     // bad
     ['get', 'post', 'put'].map(
         (httpMethod: string): ReturnedInterface =>
-            Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod)
+            Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod),
     );
 
     // good
     ['get', 'post', 'put'].map((httpMethod: string): boolean =>
-        Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod)
+        Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod),
     );
     ```
 
